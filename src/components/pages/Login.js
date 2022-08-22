@@ -291,6 +291,62 @@ function Login() {
           backgroundColor: '#DADADA',
         }}
       ></div>
+      <div style={{}}>
+        <text
+          style={{
+            // fontSize:
+            fontSize: 30,
+            fontWeight: 'bold',
+            // fontSize:""
+          }}
+        >
+          Login
+        </text>
+
+        <form
+          style={{
+            padding: 30,
+          }}
+        >
+          <label>
+            Enter your name:
+            <input
+              type="text"
+              value={name}
+              style={{
+                width: '20%',
+                height: 40,
+                marginLeft: '4%',
+                // backgroundColor: 'pink',
+              }}
+              placeholder={'Email'}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </label>
+        </form>
+        <form
+          style={{
+            padding: 30,
+          }}
+        >
+          <label>
+            Enter your Password:
+            <input
+              type="text"
+              value={name1}
+              style={{
+                width: '20%',
+                height: 40,
+                marginLeft: '2.5%',
+
+                // backgroundColor: 'pink',
+              }}
+              placeholder={'Passowrd'}
+              onChange={(e) => setName1(e.target.value)}
+            />
+          </label>
+        </form>
+      </div>
     </div>
   )
 }
