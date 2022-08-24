@@ -45,6 +45,7 @@ function Login() {
   const [name, setName] = useState('')
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
+  const [name1, setName1] = useState('')
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -269,18 +270,6 @@ function Login() {
             Hair Care
           </Link>
         </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/Report"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Contact Us
-          </Link>
-        </li>
       </ul>
       <div
         style={{
@@ -291,11 +280,24 @@ function Login() {
           backgroundColor: '#DADADA',
         }}
       ></div>
-      <div style={{}}>
+      <div
+        className="nav-Login"
+        style={{
+          paddingLeft: '30%',
+          paddingTop: '3%',
+          // flex: 1,
+          height: '70%',
+          width: '100%',
+          // // display: 'flex',
+          // backgroundColor: 'pink',
+          justifyContent: 'center',
+        }}
+      >
         <text
           style={{
             // fontSize:
             fontSize: 30,
+            marginLeft: '2.5%',
             fontWeight: 'bold',
             // fontSize:""
           }}
@@ -305,7 +307,7 @@ function Login() {
 
         <form
           style={{
-            padding: 30,
+            paddingLeft: 30,
           }}
         >
           <label>
@@ -314,7 +316,8 @@ function Login() {
               type="text"
               value={name}
               style={{
-                width: '20%',
+                width: '39%',
+                paddingLeft: '1%',
                 height: 40,
                 marginLeft: '4%',
                 // backgroundColor: 'pink',
@@ -335,9 +338,10 @@ function Login() {
               type="text"
               value={name1}
               style={{
-                width: '20%',
+                width: '40%',
                 height: 40,
-                marginLeft: '2.5%',
+                marginLeft: '1.5%',
+                paddingLeft: '1%',
 
                 // backgroundColor: 'pink',
               }}
@@ -346,6 +350,69 @@ function Login() {
             />
           </label>
         </form>
+        <div
+          style={{
+            width: '20%',
+            marginLeft: '20%',
+            height: 40,
+            borderRadius: '5px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            display: 'flex',
+            backgroundColor: '#D80000',
+          }}
+        >
+          <text
+            style={{
+              color: '#fff',
+            }}
+          >
+            Signin
+          </text>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            marginLeft: '19%',
+          }}
+        >
+          <text
+            style={
+              {
+                // color: '#fff',
+              }
+            }
+          >
+            Forget Password
+          </text>
+          <text
+            style={{
+              marginLeft: '2%',
+              // color: '#fff',
+            }}
+          >
+            Create account
+          </text>
+        </div>
+      </div>
+      <div
+        style={{
+          // flexDirection: 'row',
+          // display: 'flex',
+          // justifyContent: 'space-between',
+          marginTop: '2%',
+        }}
+      >
+        <img
+          // className="cards__item__img"
+          // alt='Travel Image'
+          style={{
+            width: '100%',
+            height: '20%',
+          }}
+          src={'../images/footer.png'}
+        />
       </div>
     </div>
   )

@@ -9,6 +9,8 @@ import Billing from './components/pages/Billing'
 import Order from './components/pages/Order'
 import Report from './components/pages/Report'
 import Login from './components/pages/Login'
+import Brand from './components/pages/Brand'
+import Cart from './components/pages/Cart'
 
 function App() {
   return (
@@ -19,8 +21,8 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/Login" component={Login} />
 
-          {/* <Route path="/Billing" component={Billing} /> */}
-          {/* <Route path="/Order" component={Order} /> */}
+          <Route path="/Brand" component={Brand} />
+          <Route path="/Cart" component={Cart} />
           {/* <Route path="/Report" component={Report} /> */}
         </Switch>
       </Router>

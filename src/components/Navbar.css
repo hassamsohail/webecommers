@@ -24,6 +24,25 @@
   /* object-fit: cover; */
   /* transition: all 0.2s linear; */
 }
+.nav-Login {
+  /* paddingLeft: '20%', */
+  /* padd */
+  /* height: 100%; */
+  /* width: 100%; */
+  /* flex: 1; */
+  /* display: flex; */
+  /* background-color: 'pink'; */
+  /* justify-content: center; */
+  /* align-items: center; */
+
+  /* padding-left: 20px; */
+
+  /* paddingTop: '10%', */
+  flex: 1;
+  /* // display: 'flex', */
+  /* alignItems: 'center', */
+  /* justifyContent: 'center', */
+}
 .navbar-container {
   display: flex;
   justify-content: center;
