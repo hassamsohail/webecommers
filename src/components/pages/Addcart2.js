@@ -69,7 +69,11 @@ function Addcart2() {
   window.addEventListener('resize', showButton)
 
   return (
-    <div>
+    <div
+      style={{
+        marginLeft: '70%',
+      }}
+    >
       <div
         style={{
           padding: 20,
@@ -80,7 +84,7 @@ function Addcart2() {
           //   display: 'flex',
           alignItems: 'center',
           //   justifyContent: 'center',
-          width: '30%',
+          width: '100%',
           height: '100%',
           //   backgroundColor: 'blue',
           //   backgroundColor: 'black',
@@ -104,8 +108,16 @@ function Addcart2() {
           >
             Your Cart
           </h2>
-
-          <FaTimes size={35} />
+          <Link
+            to="/"
+            style={{
+              // backgroundColor: 'black',
+              color: 'black',
+              // width: '100%',
+            }}
+          >
+            <FaTimes size={35} />
+          </Link>
         </div>
         <div
           //   class="shadow-2"

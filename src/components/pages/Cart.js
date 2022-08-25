@@ -443,13 +443,17 @@ function Cart() {
         with desktop publishing software like Aldus PageMaker including versions
         of Lorem Ipsum.
       </h2>
+
       <video
         style={{
-          marginLeft: '20%',
-          marginTop: '3%',
+          marginLeft: '15%',
         }}
-        src={'../images/vid.mp4'}
-      />
+        width="1000"
+        height="570"
+        controls
+      >
+        <source src={'../images/vid.mp4'} type="video/mp4" />
+      </video>
       <h2
         style={{
           fontWeight: 'bold',

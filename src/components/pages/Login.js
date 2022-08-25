@@ -60,88 +60,7 @@ function Login() {
   }, [])
 
   window.addEventListener('resize', showButton)
-  const ProductDetail = Product.map((product) => (
-    <div>
-      <div
-        style={{
-          flexDirection: 'row',
-          display: 'flex',
-          width: '100%',
-          height: '20%',
-          // backgroundColor: 'pink',
-          // justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        {/* <Image   /> */}
-        <img
-          // src=
 
-          style={{
-            marginLeft: '4%',
-          }}
-          src={product.src}
-        ></img>
-
-        <text
-          style={{
-            color: 'black',
-            fontSize: '20px',
-            marginLeft: '100px',
-          }}
-        >
-          {product.ProductName}
-        </text>
-        <text
-          style={{
-            color: 'black',
-            fontSize: '20px',
-            marginLeft: '60px',
-          }}
-        >
-          {product.ProductPrice}
-        </text>
-        <text
-          style={{
-            color: 'black',
-            fontSize: '20px',
-            marginLeft: '130px',
-          }}
-        >
-          {product.ProductDiscount}
-        </text>
-        <text
-          style={{
-            color: '#D3A469',
-            fontSize: '20px',
-            marginLeft: '150px',
-            // color
-          }}
-        >
-          Check
-        </text>
-        <text
-          style={{
-            color: '#FF0000',
-            fontSize: '20px',
-            marginLeft: '150px',
-            // color
-          }}
-        >
-          remove
-        </text>
-      </div>
-      <div
-        style={{
-          // borderBottomWidth: '1px',
-          height: '1.5px',
-          width: '100%',
-          marginTop: '1%',
-          backgroundColor: '#DADADA',
-        }}
-      ></div>
-    </div>
-  ))
   return (
     <div className="hero-container">
       <ul
@@ -374,18 +293,9 @@ function Login() {
           style={{
             display: 'flex',
             flexDirection: 'row',
-            marginLeft: '19%',
+            marginLeft: '24%',
           }}
         >
-          <text
-            style={
-              {
-                // color: '#fff',
-              }
-            }
-          >
-            Forget Password
-          </text>
           {/* <li> */}
           <Link
             style={{

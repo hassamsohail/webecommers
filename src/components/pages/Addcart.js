@@ -6,10 +6,11 @@ import '../HeroSection.css'
 import YouTube from 'react-youtube'
 import '../Navbar.css'
 import { FaPlusCircle } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+// Link
 import { FaStar } from 'react-icons/fa'
 import { FaStarHalfAlt } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { FaItchIo } from 'react-icons/fa'
 
@@ -69,7 +70,12 @@ function Addcart() {
   window.addEventListener('resize', showButton)
 
   return (
-    <div className="hero-container">
+    <div
+      className="hero-container"
+      style={{
+        marginLeft: '60%',
+      }}
+    >
       <div
         style={{
           flexDirection: 'row',
@@ -88,8 +94,16 @@ function Addcart() {
         >
           Your Cart
         </h2>
-
-        <FaTimes size={35} />
+        <Link
+          to="/"
+          style={{
+            // backgroundColor: 'black',
+            color: 'black',
+            // width: '100%',
+          }}
+        >
+          <FaTimes size={35} />
+        </Link>
       </div>
       <h2
         style={{
@@ -120,6 +134,7 @@ function Addcart() {
         We found , everything you need to support healthy oral care habit for
         life.
       </h2>
+
       <div
         style={{
           //   fontSize: 30,
@@ -151,14 +166,22 @@ function Addcart() {
               color: 'white',
             }}
           />
-          <h2
-            style={{
-              fontSize: 20,
-              color: 'white',
-            }}
+          {/* <li> */}
+          <Link
+            to="/"
+            // className="nav-links"
+            // onClick={closeMobileMenu}
           >
-            Shop Now
-          </h2>
+            <h2
+              style={{
+                fontSize: 20,
+                color: 'white',
+              }}
+            >
+              Shop Now
+            </h2>
+          </Link>
+          {/* </li> */}
         </div>
       </div>
     </div>

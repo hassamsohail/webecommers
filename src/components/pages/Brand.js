@@ -77,177 +77,187 @@ function Brand() {
 
   window.addEventListener('resize', showButton)
   const ProductDetail = Product.map((product) => (
-    <div
+    <Link
+      to="/Addcart2"
       style={{
-        // backgroundColor: 'pink',
-        marginRight: '1%',
-        width: '24%',
+        width: '100%',
       }}
+      // className="nav-links"
+      // onClick={closeMobileMenu}
+      // >
     >
       <div
-        // onClick={nextPage}
         style={{
-          width: '100%',
-          height: 400,
-          justifyContent: 'center',
-          // display: 'flex',
           // backgroundColor: 'pink',
+          marginRight: '1%',
+          width: '97%',
         }}
       >
-        <text
-          style={{
-            color: '#fff',
-            width: 50,
-            paddingLeft: 3,
-            position: 'absolute',
-            // left: 0,
-            backgroundColor: '#EB5345',
-          }}
-        >
-          Sales
-        </text>
-        <text
-          style={{
-            color: '#fff',
-            width: 50,
-            paddingLeft: 3,
-            position: 'absolute',
-            // left: 0,
-            marginTop: '2%',
-            backgroundColor: '#08C0E4',
-          }}
-        >
-          New
-        </text>
-        <img
-          // className="cards__item__img"
-          // alt='Travel Image'
-          style={{
-            width: '50%',
-            marginLeft: '23%',
-            height: '50%',
-          }}
-          src={product.src}
-        />
-
         <div
+          // onClick={nextPage}
           style={{
-            height: '50%',
             width: '100%',
-            backgroundColor: '#FDF1E2',
+            height: 400,
+            justifyContent: 'center',
+            // display: 'flex',
+            // backgroundColor: 'pink',
           }}
         >
           <text
             style={{
-              justifyContent: 'center',
-              display: 'flex',
-              // textAlign: 'center',
-              fontSize: 24,
-              marginTop: '2%',
-
-              color: 'black',
+              color: '#fff',
+              width: 50,
+              paddingLeft: 3,
+              position: 'absolute',
+              // left: 0,
+              backgroundColor: '#EB5345',
             }}
           >
-            Maybelline NY Mascara
+            Sales
           </text>
+          <text
+            style={{
+              color: '#fff',
+              width: 50,
+              paddingLeft: 3,
+              position: 'absolute',
+              // left: 0,
+              marginTop: '2%',
+              backgroundColor: '#08C0E4',
+            }}
+          >
+            New
+          </text>
+          <img
+            // className="cards__item__img"
+            // alt='Travel Image'
+            style={{
+              width: '50%',
+              marginLeft: '23%',
+              height: '50%',
+            }}
+            src={product.src}
+          />
+
           <div
             style={{
-              flexDirection: 'row',
-              display: 'flex',
-              paddingLeft: '20%',
-              marginTop: '10%',
+              height: '50%',
+              width: '100%',
+              backgroundColor: '#FDF1E2',
             }}
           >
-            <FaStar
+            <text
               style={{
-                // backgroundColor: '#754133',
-                color: '#754133',
-                marginLeft: '1%',
-              }}
-              size={25}
-            />
-            <FaStar
-              style={{
-                marginLeft: '2%',
+                justifyContent: 'center',
+                display: 'flex',
+                // textAlign: 'center',
+                fontSize: 24,
+                marginTop: '2%',
 
-                // backgroundColor: '#754133',
-                color: '#754133',
+                color: 'black',
               }}
-              size={25}
-            />{' '}
-            <FaStar
+            >
+              Maybelline NY Mascara
+            </text>
+            <div
               style={{
-                marginLeft: '2%',
+                flexDirection: 'row',
+                display: 'flex',
+                paddingLeft: '20%',
+                marginTop: '10%',
+              }}
+            >
+              <FaStar
+                style={{
+                  // backgroundColor: '#754133',
+                  color: '#754133',
+                  marginLeft: '1%',
+                }}
+                size={25}
+              />
+              <FaStar
+                style={{
+                  marginLeft: '2%',
 
-                // backgroundColor: '#754133',
-                color: '#754133',
-              }}
-              size={25}
-            />{' '}
-            <FaStar
-              style={{
-                marginLeft: '2%',
+                  // backgroundColor: '#754133',
+                  color: '#754133',
+                }}
+                size={25}
+              />{' '}
+              <FaStar
+                style={{
+                  marginLeft: '2%',
 
-                // backgroundColor: '#754133',
-                color: '#754133',
-              }}
-              size={25}
-            />{' '}
-            <FaStarHalfAlt
-              style={{
-                marginLeft: '2%',
-                // backgroundColor: '#754133',
-                color: '#754133',
-              }}
-              size={25}
-            />
+                  // backgroundColor: '#754133',
+                  color: '#754133',
+                }}
+                size={25}
+              />{' '}
+              <FaStar
+                style={{
+                  marginLeft: '2%',
+
+                  // backgroundColor: '#754133',
+                  color: '#754133',
+                }}
+                size={25}
+              />{' '}
+              <FaStarHalfAlt
+                style={{
+                  marginLeft: '2%',
+                  // backgroundColor: '#754133',
+                  color: '#754133',
+                }}
+                size={25}
+              />
+              <text
+                style={{
+                  justifyContent: 'center',
+                  display: 'flex',
+                  // textAlign: 'center',
+                  fontSize: 18,
+                  marginLeft: '2%',
+                  color: 'black',
+                  // textDecorationLine: 'line-through',
+                }}
+              >
+                6 review
+              </text>
+            </div>
             <text
               style={{
                 justifyContent: 'center',
                 display: 'flex',
                 // textAlign: 'center',
                 fontSize: 18,
-                marginLeft: '2%',
+                color: 'red',
+                marginTop: '4%',
+
+                textDecorationLine: 'line-through',
+              }}
+            >
+              {product.ProductDiscount}
+            </text>
+
+            <text
+              style={{
+                justifyContent: 'center',
+                display: 'flex',
+                // textAlign: 'center',
+                fontSize: 28,
                 color: 'black',
+                marginTop: '4%',
+
+                fontWeight: 'bold',
                 // textDecorationLine: 'line-through',
               }}
             >
-              6 review
+              {product.ProductPrice}
             </text>
           </div>
-          <text
-            style={{
-              justifyContent: 'center',
-              display: 'flex',
-              // textAlign: 'center',
-              fontSize: 18,
-              color: 'red',
-              marginTop: '4%',
-
-              textDecorationLine: 'line-through',
-            }}
-          >
-            {product.ProductDiscount}
-          </text>
-
-          <text
-            style={{
-              justifyContent: 'center',
-              display: 'flex',
-              // textAlign: 'center',
-              fontSize: 28,
-              color: 'black',
-              marginTop: '4%',
-
-              fontWeight: 'bold',
-              // textDecorationLine: 'line-through',
-            }}
-          >
-            {product.ProductPrice}
-          </text>
         </div>
       </div>
-    </div>
+    </Link>
   ))
   return (
     <div className="hero-container">
