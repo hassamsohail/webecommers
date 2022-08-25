@@ -6,11 +6,16 @@ import { Button } from './Button'
 import './HeroSection.css'
 import './Navbar.css'
 import { FaPlusCircle } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 import { FaStarHalfAlt } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 function HeroSection() {
+  // const navigate = useNavigate()
+  // const ClickHandle = () => {
+  //   navigate('/Cart')
+  // }
   const Product = [
     {
       id: 1,
@@ -310,6 +315,7 @@ function HeroSection() {
           }}
         >
           <div
+            // onClick={ClickHandle}
             style={{
               width: '24%',
               height: 400,

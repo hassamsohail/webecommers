@@ -125,7 +125,7 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/Login">
+          <Link to="/Addcart">
             <FaDollyFlatbed
               style={{
                 color: '#F7C17C',

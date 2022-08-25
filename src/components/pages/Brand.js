@@ -233,7 +233,7 @@ function Brand() {
             style={{
               color: 'black',
             }}
-            to="/Report"
+            to="/"
             className="nav-links"
             onClick={closeMobileMenu}
           >
