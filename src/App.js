@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import './App.css'
 import Home from './components/pages/Home'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom'
 
 import Category from './components/pages/Category'
 import Billing from './components/pages/Billing'
@@ -13,11 +13,12 @@ import Brand from './components/pages/Brand'
 import Cart from './components/pages/Cart'
 import Addcart from './components/pages/Addcart'
 import Addcart2 from './components/pages/Addcart2'
+import Create from './components/pages/Create'
 
 function App() {
   return (
     <>
-      <Router>
+      <Routes>
         <Navbar />
         {/* <Switch> */}
         <Route path="/" exact component={Home} />
@@ -26,8 +27,10 @@ function App() {
         <Route path="/Cart" component={Cart} />
         <Route path="/Addcart" component={Addcart} />
         <Route path="/Addcart2" component={Addcart2} />
+        <Route path="/Create" component={Create} />
+
         {/* </Switch> */}
-      </Router>
+      </Routes>
     </>
   )
 }

@@ -138,7 +138,7 @@ function Cart() {
             style={{
               color: 'black',
             }}
-            to="/Billing"
+            to="/"
             className="nav-links"
             onClick={closeMobileMenu}
           >
@@ -162,7 +162,7 @@ function Cart() {
             style={{
               color: 'black',
             }}
-            to="/Report"
+            to="/"
             className="nav-links"
             onClick={closeMobileMenu}
           >
@@ -174,7 +174,7 @@ function Cart() {
             style={{
               color: 'black',
             }}
-            to="/Report"
+            to="/"
             className="nav-links"
             onClick={closeMobileMenu}
           >
@@ -186,7 +186,7 @@ function Cart() {
             style={{
               color: 'black',
             }}
-            to="/Report"
+            to="/"
             className="nav-links"
             onClick={closeMobileMenu}
           >
@@ -362,31 +362,34 @@ function Cart() {
               </h2>
             </div>
           </div>
+          <li>
+            <Link to="/Addcart2" className="nav-link" onClick={closeMobileMenu}>
+              <div
+                style={{
+                  width: '60%',
+                  height: 40,
+                  borderRadius: 10,
+                  marginTop: '5%',
 
-          <div
-            style={{
-              width: '60%',
-              height: 40,
-              borderRadius: 10,
-              marginTop: '5%',
+                  backgroundColor: '#F7C17C',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <h2
+                  style={{
+                    color: 'white',
+                    // fontSize: 18,
 
-              backgroundColor: '#F7C17C',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <h2
-              style={{
-                color: 'white',
-                // fontSize: 18,
-
-                textAlign: 'center',
-              }}
-            >
-              ADD TO CART
-            </h2>
-          </div>
+                    textAlign: 'center',
+                  }}
+                >
+                  ADD TO CART
+                </h2>
+              </div>
+            </Link>
+          </li>
           <div
             style={{
               width: '60%',

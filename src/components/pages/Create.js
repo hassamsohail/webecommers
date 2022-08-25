@@ -15,7 +15,7 @@ import '../Navbar.css'
 import '../HeroSection.css'
 // import './Navbar.css'
 
-function Login() {
+function Create() {
   const Product = [
     {
       id: 1,
@@ -42,10 +42,12 @@ function Login() {
   ]
   const [click, setClick] = useState(false)
   const [button, setButton] = useState(true)
-  const [name, setName] = useState('')
+  const [Email, setEmail] = useState('')
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
-  const [name1, setName1] = useState('')
+  const [Password, setPassword] = useState('')
+  const [First, setFirst] = useState('')
+  const [Last, setLast] = useState('')
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -302,28 +304,73 @@ function Login() {
             // fontSize:""
           }}
         >
-          Login
+          Create Account
         </text>
+        <form
+          style={{
+            padding: 30,
+          }}
+        >
+          <label>
+            Enter your First Name:
+            <input
+              type="text"
+              value={First}
+              style={{
+                width: '40%',
+                height: 40,
+                marginLeft: '1.5%',
+                paddingLeft: '1%',
 
+                // backgroundColor: 'pink',
+              }}
+              placeholder={'First Name'}
+              onChange={(e) => setFirst(e.target.value)}
+            />
+          </label>
+        </form>
+        <form
+          style={{
+            padding: 30,
+          }}
+        >
+          <label>
+            Enter your Last Name:
+            <input
+              type="text"
+              value={Last}
+              style={{
+                width: '40%',
+                height: 40,
+                marginLeft: '1.5%',
+                paddingLeft: '1%',
+
+                // backgroundColor: 'pink',
+              }}
+              placeholder={'Last Name'}
+              onChange={(e) => setLast(e.target.value)}
+            />
+          </label>
+        </form>
         <form
           style={{
             paddingLeft: 30,
           }}
         >
           <label>
-            Enter your name:
+            Enter your Email:
             <input
               type="text"
-              value={name}
+              value={Email}
               style={{
                 width: '39%',
                 paddingLeft: '1%',
                 height: 40,
-                marginLeft: '4%',
+                marginLeft: '5%',
                 // backgroundColor: 'pink',
               }}
               placeholder={'Email'}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </label>
         </form>
@@ -336,20 +383,21 @@ function Login() {
             Enter your Password:
             <input
               type="text"
-              value={name1}
+              value={Password}
               style={{
                 width: '40%',
                 height: 40,
-                marginLeft: '1.5%',
+                marginLeft: '2.5%',
                 paddingLeft: '1%',
 
                 // backgroundColor: 'pink',
               }}
               placeholder={'Passowrd'}
-              onChange={(e) => setName1(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </label>
         </form>
+
         <div
           style={{
             width: '20%',
@@ -367,32 +415,23 @@ function Login() {
               color: '#fff',
             }}
           >
-            Signin
+            SignUp
           </text>
         </div>
         <div
           style={{
             display: 'flex',
             flexDirection: 'row',
-            marginLeft: '19%',
+            marginLeft: '24%',
           }}
         >
-          <text
-            style={
-              {
-                // color: '#fff',
-              }
-            }
-          >
-            Forget Password
-          </text>
           {/* <li> */}
           <Link
             style={{
               width: '30%',
               color: 'black',
             }}
-            to="/Create"
+            to="/Login"
 
             // className="nav-link"
             // onClick={closeMobileMenu}
@@ -405,7 +444,7 @@ function Login() {
                 }
               }
             >
-              Create account
+              Back To Home page
             </text>
           </Link>
           {/* </li> */}
@@ -432,4 +471,4 @@ function Login() {
     </div>
   )
 }
-export default Login
+export default Create

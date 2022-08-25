@@ -107,6 +107,15 @@
   padding: 1rem 1rem;
   height: 100%;
 }
+.nav-link {
+  color: #fff;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* text-decoration: none; */
+  padding: 0;
+  height: 100%;
+}
 .nav-Delivered {
   height: 10vh;
   width: 20vh;
