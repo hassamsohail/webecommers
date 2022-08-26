@@ -3,50 +3,39 @@ import React, { useState, useEffect } from 'react'
 import { FaSearch } from 'react-icons/fa'
 // import sofa from '../images/sofa.png'
 import { Link } from 'react-router-dom'
-import { FaArrowAltCircleRight } from 'react-icons/fa'
-
-// import sofa from '../images/sofa.png'
-// import '../App.css'
-// import ".../"
-// import '.../App.css'
-import HeroSection from '../HeroSection'
-
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import '../Navbar.css'
+
 import '../HeroSection.css'
 // import './Navbar.css'
+import { auth } from '../../firebase'
+// import { useNavigate } from '@reach/router'
 
 function Login() {
-  const Product = [
-    {
-      id: 1,
-
-      src: '../images/sofa.png',
-      // Image: '../images/sofa.png',
-      // photo: sofa,
-      ProductName: "Woman's Makeup bag",
-      ProductPrice: 'Rs25000',
-      ProductDiscount: 'Rs5000',
-      // ProductRating:""
-    },
-    {
-      id: 1,
-
-      src: '../images/sofa.png',
-      // Image: '../images/sofa.png',
-      // photo: sofa,
-      ProductName: "Woman's Makeup bag",
-      ProductPrice: 'Rs25000',
-      ProductDiscount: 'Rs5000',
-      // ProductRating:""
-    },
-  ]
   const [click, setClick] = useState(false)
   const [button, setButton] = useState(true)
-  const [email, setemail] = useState('')
+  const [Email, setEmail] = useState('')
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
-  const [password, setpassword] = useState('')
+  const [Password, setPassword] = useState('')
+  const [submitButtonDisabled, setsubmitButtonDisabled] = useState(false)
+  // const navigate = useNavigate()
 
+  const sign = () => {
+    signin()
+    // navigate('/Home')
+  }
+  const signin = () => {
+    signInWithEmailAndPassword(auth, Email, Password)
+      .then((res) => {
+        const user = res.user
+
+        console.log(user)
+      })
+      .catch((error) => {
+        console.log('Error', error.message)
+      })
+  }
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false)
@@ -200,6 +189,7 @@ function Login() {
         }}
       ></div>
       <div
+        onClick={sign}
         className="nav-Login"
         style={{
           paddingLeft: '30%',
@@ -233,7 +223,7 @@ function Login() {
             Enter your name:
             <input
               type="text"
-              value={email}
+              value={Email}
               style={{
                 width: '39%',
                 paddingLeft: '1%',
@@ -242,7 +232,7 @@ function Login() {
                 // backgroundColor: 'pink',
               }}
               placeholder={'Email'}
-              onChange={(e) => setemail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </label>
         </form>
@@ -255,7 +245,7 @@ function Login() {
             Enter your Password:
             <input
               type="text"
-              value={password}
+              value={Password}
               style={{
                 width: '40%',
                 height: 40,
@@ -265,7 +255,7 @@ function Login() {
                 // backgroundColor: 'pink',
               }}
               placeholder={'Passowrd'}
-              onChange={(e) => setpassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </label>
         </form>

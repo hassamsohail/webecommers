@@ -52,7 +52,6 @@ function Create() {
       })
       .catch((error) => {
         setsubmitButtonDisabled(false)
-        alert('User Already Existed')
         console.log('Error', error.message)
       })
   }
