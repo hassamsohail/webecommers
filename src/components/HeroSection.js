@@ -32,6 +32,7 @@ function HeroSection({}) {
   const Product = [
     {
       id: 1,
+      vedio: '/images/vid.mp4',
 
       src: '../images/Item1.png',
       // Image: '../images/sofa.png',
@@ -44,6 +45,7 @@ function HeroSection({}) {
     {
       id: 1,
 
+      vedio: '/images/vid.mp4',
       src: '../images/sofa.png',
       // Image: '../images/sofa.png',
       // photo: sofa,
@@ -61,6 +63,8 @@ function HeroSection({}) {
       ProductName: "Woman's Makeup bag",
       ProductPrice: 'Rs25000',
       ProductDiscount: 'Rs5000',
+      vedio: '/images/vid.mp4',
+
       // ProductRating:""
     },
     {
