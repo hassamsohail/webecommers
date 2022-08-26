@@ -116,6 +116,25 @@
   padding: 0;
   height: 100%;
 }
+.button:disabled {
+  background-color: grey;
+}
+.button:hover {
+  background-color: #262523;
+  /* color: #f7c17c; */
+}
+.button {
+  width: 20%;
+  margin-left: 210px;
+  height: 10%;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: #fff;
+  border-color: #fff;
+  background-color: #d80000;
+}
 .nav-Delivered {
   height: 10vh;
   width: 20vh;

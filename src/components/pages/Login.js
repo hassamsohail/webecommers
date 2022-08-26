@@ -42,10 +42,10 @@ function Login() {
   ]
   const [click, setClick] = useState(false)
   const [button, setButton] = useState(true)
-  const [name, setName] = useState('')
+  const [email, setemail] = useState('')
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
-  const [name1, setName1] = useState('')
+  const [password, setpassword] = useState('')
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -233,7 +233,7 @@ function Login() {
             Enter your name:
             <input
               type="text"
-              value={name}
+              value={email}
               style={{
                 width: '39%',
                 paddingLeft: '1%',
@@ -242,7 +242,7 @@ function Login() {
                 // backgroundColor: 'pink',
               }}
               placeholder={'Email'}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setemail(e.target.value)}
             />
           </label>
         </form>
@@ -255,7 +255,7 @@ function Login() {
             Enter your Password:
             <input
               type="text"
-              value={name1}
+              value={password}
               style={{
                 width: '40%',
                 height: 40,
@@ -265,10 +265,11 @@ function Login() {
                 // backgroundColor: 'pink',
               }}
               placeholder={'Passowrd'}
-              onChange={(e) => setName1(e.target.value)}
+              onChange={(e) => setpassword(e.target.value)}
             />
           </label>
         </form>
+
         <div
           style={{
             width: '20%',
@@ -297,27 +298,30 @@ function Login() {
           }}
         >
           {/* <li> */}
-          <Link
-            style={{
-              width: '30%',
-              color: 'black',
-            }}
-            to="/Create"
+          <span>
+            <Link
+              style={{
+                width: '30%',
+                color: 'black',
+              }}
+              to="/Create"
 
-            // className="nav-link"
-            // onClick={closeMobileMenu}
-          >
-            <text
-              style={
-                {
-                  // marginLeft: '2%',
-                  // color: '#fff',
-                }
-              }
+              // className="nav-link"
+              // onClick={closeMobileMenu}
             >
-              Create account
-            </text>
-          </Link>
+              <text
+                style={
+                  {
+                    // marginLeft: '2%',
+                    // color: '#fff',
+                  }
+                }
+              >
+                Create account
+              </text>
+            </Link>
+          </span>
+
           {/* </li> */}
         </div>
       </div>

@@ -12,13 +12,12 @@ import { Link, Route, Routes } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 import { FaStarHalfAlt } from 'react-icons/fa'
 // import { useNavigate } from 'react-router-dom'
-import { useNavigate } from '@reach/router'
+// import { useNavigate } from '@reach/router'
 function HeroSection({}) {
   // const history = useNavigate()
   // const nextPage = (e) => {
   //   e.preventDefault()
   //   history('/Cart',{
-
   // })
   // }
   // const navi = useNavigate()

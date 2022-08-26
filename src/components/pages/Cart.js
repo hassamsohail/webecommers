@@ -9,7 +9,6 @@ import { FaPlusCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 import { FaStarHalfAlt } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
 
 function Cart() {
   const incrementCount = () => {

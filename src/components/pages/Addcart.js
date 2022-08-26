@@ -3,14 +3,10 @@ import React, { useState, useEffect } from 'react'
 // import sofa from '../images/sofa.png'
 import '../../App.css'
 import '../HeroSection.css'
-import YouTube from 'react-youtube'
 import '../Navbar.css'
-import { FaPlusCircle } from 'react-icons/fa'
 // import { Link } from 'react-router-dom'
 // Link
-import { FaStar } from 'react-icons/fa'
-import { FaStarHalfAlt } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { FaItchIo } from 'react-icons/fa'
 

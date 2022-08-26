@@ -1,19 +1,10 @@
-// import React from 'react'
 import React, { useState, useEffect } from 'react'
-import { FaSearch } from 'react-icons/fa'
-// import sofa from '../images/sofa.png'
 import { Link } from 'react-router-dom'
-import { FaArrowAltCircleRight } from 'react-icons/fa'
 
-// import sofa from '../images/sofa.png'
-// import '../App.css'
-// import ".../"
-// import '.../App.css'
-import HeroSection from '../HeroSection'
-
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 import '../Navbar.css'
 import '../HeroSection.css'
-// import './Navbar.css'
+import { auth } from '../../firebase'
 
 function Create() {
   const Product = [
@@ -40,6 +31,7 @@ function Create() {
       // ProductRating:""
     },
   ]
+  const [submitButtonDisabled, setsubmitButtonDisabled] = useState(false)
   const [click, setClick] = useState(false)
   const [button, setButton] = useState(true)
   const [Email, setEmail] = useState('')
@@ -48,7 +40,22 @@ function Create() {
   const [Password, setPassword] = useState('')
   const [First, setFirst] = useState('')
   const [Last, setLast] = useState('')
+  const HandleSubmit = () => {
+    setsubmitButtonDisabled(true)
+    createUserWithEmailAndPassword(auth, Email, Password)
+      .then((res) => {
+        setsubmitButtonDisabled(false)
 
+        const user = res.user
+
+        console.log(user)
+      })
+      .catch((error) => {
+        setsubmitButtonDisabled(false)
+        alert('User Already Existed')
+        console.log('Error', error.message)
+      })
+  }
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false)
@@ -62,88 +69,7 @@ function Create() {
   }, [])
 
   window.addEventListener('resize', showButton)
-  const ProductDetail = Product.map((product) => (
-    <div>
-      <div
-        style={{
-          flexDirection: 'row',
-          display: 'flex',
-          width: '100%',
-          height: '20%',
-          // backgroundColor: 'pink',
-          // justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        {/* <Image   /> */}
-        <img
-          // src=
 
-          style={{
-            marginLeft: '4%',
-          }}
-          src={product.src}
-        ></img>
-
-        <text
-          style={{
-            color: 'black',
-            fontSize: '20px',
-            marginLeft: '100px',
-          }}
-        >
-          {product.ProductName}
-        </text>
-        <text
-          style={{
-            color: 'black',
-            fontSize: '20px',
-            marginLeft: '60px',
-          }}
-        >
-          {product.ProductPrice}
-        </text>
-        <text
-          style={{
-            color: 'black',
-            fontSize: '20px',
-            marginLeft: '130px',
-          }}
-        >
-          {product.ProductDiscount}
-        </text>
-        <text
-          style={{
-            color: '#D3A469',
-            fontSize: '20px',
-            marginLeft: '150px',
-            // color
-          }}
-        >
-          Check
-        </text>
-        <text
-          style={{
-            color: '#FF0000',
-            fontSize: '20px',
-            marginLeft: '150px',
-            // color
-          }}
-        >
-          remove
-        </text>
-      </div>
-      <div
-        style={{
-          // borderBottomWidth: '1px',
-          height: '1.5px',
-          width: '100%',
-          marginTop: '1%',
-          backgroundColor: '#DADADA',
-        }}
-      ></div>
-    </div>
-  ))
   return (
     <div className="hero-container">
       <ul
@@ -154,14 +80,7 @@ function Create() {
         }}
         className={click ? 'nav-menu' : 'nav-menu'}
       >
-        <li
-          style={
-            {
-              // backgroundColor: 'red',
-            }
-          }
-          className="nav-item"
-        >
+        <li style={{}} className="nav-item">
           <Link
             style={{
               color: 'black',
@@ -397,27 +316,20 @@ function Create() {
             />
           </label>
         </form>
-
-        <div
-          style={{
-            width: '20%',
-            marginLeft: '20%',
-            height: 40,
-            borderRadius: '5px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            display: 'flex',
-            backgroundColor: '#D80000',
-          }}
+        <button
+          disabled={submitButtonDisabled}
+          onClick={HandleSubmit}
+          className="button"
         >
+          SignUp
+        </button>
+        {/* <div>
           <text
             style={{
               color: '#fff',
             }}
-          >
-            SignUp
-          </text>
-        </div>
+          ></text>
+        </div> */}
         <div
           style={{
             display: 'flex',
