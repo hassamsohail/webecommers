@@ -300,7 +300,7 @@ function Create() {
           <label>
             Enter your Password:
             <input
-              type="text"
+              type="password"
               value={Password}
               style={{
                 width: '40%',

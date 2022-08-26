@@ -225,7 +225,7 @@ function Login() {
           }}
         >
           <label>
-            Enter your name:
+            Enter your Email:
             <input
               type="text"
               value={Email}
@@ -249,7 +249,7 @@ function Login() {
           <label>
             Enter your Password:
             <input
-              type="text"
+              type="password"
               value={Password}
               style={{
                 width: '40%',
