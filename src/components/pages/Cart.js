@@ -9,6 +9,7 @@ import { FaPlusCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 import { FaStarHalfAlt } from 'react-icons/fa'
+import { useLocation } from 'react-router-dom'
 
 import { FaItchIo } from 'react-icons/fa'
 import SlidingPane from 'react-sliding-pane'
@@ -50,7 +51,16 @@ function Cart() {
   }, [])
 
   window.addEventListener('resize', showButton)
+  const location = useLocation()
+  const ProductDiscount = location.state.ProductDiscount
+  const ProductName = location.state.ProductName
 
+  const ProductPrice = location.state.ProductPrice
+  const image = location.state.image
+
+  const vedio = location.state.vedio
+
+  // console.log(location)
   return (
     <div className="hero-container">
       <ul
@@ -219,7 +229,7 @@ function Cart() {
               //   marginLeft: '23%',
               height: '100%',
             }}
-            src={'../images/Item1.png'}
+            src={image}
           />
         </div>
 
@@ -238,7 +248,7 @@ function Cart() {
               color: 'black',
             }}
           >
-            Maybelline Ny volumn Express THE colossal washable maskara
+            {ProductName}
           </h2>
           <div
             style={{
@@ -253,7 +263,7 @@ function Cart() {
                 color: '#F7C17C',
               }}
             >
-              Rs 20000
+              {ProductPrice}
             </h2>
             <h2
               style={{
@@ -263,7 +273,7 @@ function Cart() {
                 textDecorationLine: 'line-through',
               }}
             >
-              Rs 20000
+              {ProductDiscount}
             </h2>
           </div>
           <div
@@ -394,6 +404,7 @@ function Cart() {
               }}
             >
               CHECK OUT
+              {/* {myparam} */}
             </h2>
           </div>
         </div>
@@ -436,7 +447,7 @@ function Cart() {
         height="570"
         controls
       >
-        <source src={'../images/vid.mp4'} type="video/mp4" />
+        <source src={vedio} type="video/mp4" />
       </video>
       <h2
         style={{

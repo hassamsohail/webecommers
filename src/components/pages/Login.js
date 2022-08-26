@@ -5,6 +5,7 @@ import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import '../Navbar.css'
+import { useHistory } from 'react-router-dom'
 
 import '../HeroSection.css'
 // import './Navbar.css'
@@ -12,6 +13,8 @@ import { auth } from '../../firebase'
 // import { useNavigate } from '@reach/router'
 
 function Login() {
+  let history = useHistory()
+
   const [click, setClick] = useState(false)
   const [button, setButton] = useState(true)
   const [Email, setEmail] = useState('')
@@ -29,7 +32,9 @@ function Login() {
     signInWithEmailAndPassword(auth, Email, Password)
       .then((res) => {
         const user = res.user
-
+        // onClick={() => {
+        history.push('/')
+        // }}
         console.log(user)
       })
       .catch((error) => {
