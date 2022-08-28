@@ -12,9 +12,105 @@ import { Link, Route, Routes } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 import { FaStarHalfAlt } from 'react-icons/fa'
 import { useHistory } from 'react-router-dom'
+import Footer from './Footer'
 // import { useNavigate } from 'react-router-dom'
 // import { useNavigate } from '@reach/router'
 function HeroSection({}) {
+  const AAry = [
+    {
+      img: '../images/imgg1.png',
+      // width:
+      title: 'Maybelline New York',
+      subarry: [
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
+          productOffPrice: '1,99',
+          productOnPrice: '839',
+          OffPrice: '560',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/2.PNG',
+          Discription:
+            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
+        },
+        {
+          productName:
+            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
+          productOffPrice: '1,995',
+          productOnPrice: '1,197',
+          OffPrice: '798',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/3.PNG',
+          Discription:
+            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
+        },
+        {
+          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productOffPrice: '1,890',
+          productOnPrice: '1,134',
+          OffPrice: '756',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/4.PNG',
+          Discription:
+            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
+        },
+      ],
+    },
+    {
+      img: '../images/imgg2.png',
+      // width:
+      title: 'FLASH WEEKEND SALE ',
+    },
+
+    {
+      img: '../images/imgg3.png',
+      // width:
+      title: 'THE ORDINARY SERUMS - SALE',
+    },
+    {
+      img: '../images/imgg4.png',
+      // width:
+      title: 'Maybelline New York',
+    },
+    {
+      img: '../images/imgg5.png',
+      // width:
+      title: 'Maybelline New York',
+    },
+    {
+      img: '../images/imgg6.png',
+      // width:
+      title: 'Maybelline New York',
+    },
+    {
+      img: '../images/imgg7.png',
+      // width:
+      title: 'Maybelline New York',
+    },
+    {
+      img: '../images/imgg8.png',
+      // width:
+      title: 'Maybelline New York',
+    },
+    {
+      img: '../images/imgg9.png',
+      // width:
+      title: 'Maybelline New York',
+    },
+  ]
   // const history = useNavigate()
   // const nextPage = (e) => {
   //   e.preventDefault()
@@ -29,57 +125,82 @@ function HeroSection({}) {
   //   navigate('/Cart')
   // }
   const dat = [{}]
-  const Product = [
-    {
-      id: 1,
-      vedio: '/images/vid.mp4',
+  // const Product = [
+  //   {
+  //     id: 1,
+  //     vedio: '/images/vid.mp4',
 
-      src: '../images/Item1.png',
-      // Image: '../images/sofa.png',
-      // photo: sofa,
-      ProductName: ' Mascara',
-      ProductPrice: 'Rs25000',
-      ProductDiscount: 'Rs5000',
-      // ProductRating:""
-    },
-    {
-      id: 1,
+  //     src: '../images/Item1.png',
+  //     // Image: '../images/sofa.png',
+  //     // photo: sofa,
+  //     ProductName: ' Mascara',
+  //     ProductPrice: 'Rs25000',
+  //     ProductDiscount: 'Rs5000',
+  //     // ProductRating:""
+  //   },
+  //   {
+  //     id: 1,
 
-      vedio: '/images/vid.mp4',
-      src: '../images/sofa.png',
-      // Image: '../images/sofa.png',
-      // photo: sofa,
-      ProductName: "Woman's Makeup bag",
-      ProductPrice: 'Rs25000',
-      ProductDiscount: 'Rs5000',
-      // ProductRating:""
-    },
-    {
-      id: 1,
+  //     vedio: '/images/vid.mp4',
+  //     src: '../images/sofa.png',
+  //     // Image: '../images/sofa.png',
+  //     // photo: sofa,
+  //     ProductName: "Woman's Makeup bag",
+  //     ProductPrice: 'Rs25000',
+  //     ProductDiscount: 'Rs5000',
+  //     // ProductRating:""
+  //   },
+  //   {
+  //     id: 1,
 
-      src: '../images/sofa.png',
-      // Image: '../images/sofa.png',
-      // photo: sofa,
-      ProductName: "Woman's Makeup bag",
-      ProductPrice: 'Rs25000',
-      ProductDiscount: 'Rs5000',
-      vedio: '/images/vid.mp4',
+  //     src: '../images/sofa.png',
+  //     // Image: '../images/sofa.png',
+  //     // photo: sofa,
+  //     ProductName: "Woman's Makeup bag",
+  //     ProductPrice: 'Rs25000',
+  //     ProductDiscount: 'Rs5000',
+  //     vedio: '/images/vid.mp4',
 
-      // ProductRating:""
-    },
-    {
-      id: 1,
+  //     // ProductRating:""
+  //   },
+  //   {
+  //     id: 1,
 
-      src: '../images/sofa.png',
-      // Image: '../images/sofa.png',
-      // photo: sofa,
-      ProductName: "Woman's Makeup bag",
-      ProductPrice: 'Rs25000',
-      ProductDiscount: 'Rs5000',
-      vedio: '/images/vid.mp4',
-      // ProductRating:""
-    },
-  ]
+  //     src: '../images/sofa.png',
+  //     // Image: '../images/sofa.png',
+  //     // photo: sofa,
+  //     ProductName: "Woman's Makeup bag",
+  //     ProductPrice: 'Rs25000',
+  //     ProductDiscount: 'Rs5000',
+  //     vedio: '/images/vid.mp4',
+  //     // ProductRating:""
+  //   },
+  // ]
+  const AllData = AAry.map((item) => (
+    // <div className="img-main">
+    <div
+      // onClick={() => history('/Cart')}
+      onClick={() => {
+        history.push('/Brand', {
+          TitleMain: item.title,
+          SubArray: item.subarry,
+        })
+      }}
+      style={{
+        marginTop: '3%',
+      }}
+    >
+      <img
+        style={{
+          width: '100%',
+          height: '10%',
+        }}
+        src={item.img}
+      />
+    </div>
+    // </div>
+  ))
+
   const [click, setClick] = useState(false)
   const [button, setButton] = useState(true)
   const handleClick = () => setClick(!click)
@@ -98,193 +219,194 @@ function HeroSection({}) {
   }, [])
 
   window.addEventListener('resize', showButton)
-  const ProductDetail = Product.map((product) => (
-    // <Link
 
-    <div
-      onClick={() => {
-        history.push('/Cart', {
-          ProductName: product.ProductName,
-          ProductPrice: product.ProductPrice,
-          ProductDiscount: product.ProductDiscount,
-          image: product.src,
-          vedio: product.vedio,
-        })
-      }}
-      style={{
-        // backgroundColor: 'pink',
-        marginRight: '1%',
-        width: '97%',
-      }}
-    >
-      <div
-        // onClick={nextPage}
-        style={{
-          width: '100%',
-          height: 400,
-          justifyContent: 'center',
-          // display: 'flex',
-          // backgroundColor: 'pink',
-        }}
-      >
-        <text
-          style={{
-            color: '#fff',
-            width: 50,
-            paddingLeft: 3,
-            position: 'absolute',
-            // left: 0,
-            backgroundColor: '#EB5345',
-          }}
-        >
-          Sales
-        </text>
-        <text
-          style={{
-            color: '#fff',
-            width: 50,
-            paddingLeft: 3,
-            position: 'absolute',
-            // left: 0,
-            marginTop: '2%',
-            backgroundColor: '#08C0E4',
-          }}
-        >
-          New
-        </text>
-        <img
-          // className="cards__item__img"
-          // alt='Travel Image'
-          style={{
-            width: '50%',
-            marginLeft: '23%',
-            height: '50%',
-          }}
-          src={product.src}
-        />
+  // const ProductDetail = Product.map((product) => (
+  //   // <Link
 
-        <div
-          style={{
-            height: '50%',
-            width: '100%',
-            backgroundColor: '#FDF1E2',
-          }}
-        >
-          <text
-            style={{
-              justifyContent: 'center',
-              display: 'flex',
-              // textAlign: 'center',
-              fontSize: 24,
-              marginTop: '2%',
+  //   <div
+  //     onClick={() => {
+  //       history.push('/Cart', {
+  //         ProductName: product.ProductName,
+  //         ProductPrice: product.ProductPrice,
+  //         ProductDiscount: product.ProductDiscount,
+  //         image: product.src,
+  //         vedio: product.vedio,
+  //       })
+  //     }}
+  //     style={{
+  //       // backgroundColor: 'pink',
+  //       marginRight: '1%',
+  //       width: '97%',
+  //     }}
+  //   >
+  //     <div
+  //       // onClick={nextPage}
+  //       style={{
+  //         width: '100%',
+  //         height: 400,
+  //         justifyContent: 'center',
+  //         // display: 'flex',
+  //         // backgroundColor: 'pink',
+  //       }}
+  //     >
+  //       <text
+  //         style={{
+  //           color: '#fff',
+  //           width: 50,
+  //           paddingLeft: 3,
+  //           position: 'absolute',
+  //           // left: 0,
+  //           backgroundColor: '#EB5345',
+  //         }}
+  //       >
+  //         Sales
+  //       </text>
+  //       <text
+  //         style={{
+  //           color: '#fff',
+  //           width: 50,
+  //           paddingLeft: 3,
+  //           position: 'absolute',
+  //           // left: 0,
+  //           marginTop: '2%',
+  //           backgroundColor: '#08C0E4',
+  //         }}
+  //       >
+  //         New
+  //       </text>
+  //       <img
+  //         // className="cards__item__img"
+  //         // alt='Travel Image'
+  //         style={{
+  //           width: '50%',
+  //           marginLeft: '23%',
+  //           height: '50%',
+  //         }}
+  //         src={product.src}
+  //       />
 
-              color: 'black',
-            }}
-          >
-            Maybelline NY Mascara
-          </text>
-          <div
-            style={{
-              flexDirection: 'row',
-              display: 'flex',
-              paddingLeft: '20%',
-              marginTop: '10%',
-            }}
-          >
-            <FaStar
-              style={{
-                // backgroundColor: '#754133',
-                color: '#754133',
-                marginLeft: '1%',
-              }}
-              size={25}
-            />
-            <FaStar
-              style={{
-                marginLeft: '2%',
+  //       <div
+  //         style={{
+  //           height: '50%',
+  //           width: '100%',
+  //           backgroundColor: '#FDF1E2',
+  //         }}
+  //       >
+  //         <text
+  //           style={{
+  //             justifyContent: 'center',
+  //             display: 'flex',
+  //             // textAlign: 'center',
+  //             fontSize: 24,
+  //             marginTop: '2%',
 
-                // backgroundColor: '#754133',
-                color: '#754133',
-              }}
-              size={25}
-            />{' '}
-            <FaStar
-              style={{
-                marginLeft: '2%',
+  //             color: 'black',
+  //           }}
+  //         >
+  //           Maybelline NY Mascara
+  //         </text>
+  //         <div
+  //           style={{
+  //             flexDirection: 'row',
+  //             display: 'flex',
+  //             paddingLeft: '20%',
+  //             marginTop: '10%',
+  //           }}
+  //         >
+  //           <FaStar
+  //             style={{
+  //               // backgroundColor: '#754133',
+  //               color: '#754133',
+  //               marginLeft: '1%',
+  //             }}
+  //             size={25}
+  //           />
+  //           <FaStar
+  //             style={{
+  //               marginLeft: '2%',
 
-                // backgroundColor: '#754133',
-                color: '#754133',
-              }}
-              size={25}
-            />{' '}
-            <FaStar
-              style={{
-                marginLeft: '2%',
+  //               // backgroundColor: '#754133',
+  //               color: '#754133',
+  //             }}
+  //             size={25}
+  //           />{' '}
+  //           <FaStar
+  //             style={{
+  //               marginLeft: '2%',
 
-                // backgroundColor: '#754133',
-                color: '#754133',
-              }}
-              size={25}
-            />{' '}
-            <FaStarHalfAlt
-              style={{
-                marginLeft: '2%',
-                // backgroundColor: '#754133',
-                color: '#754133',
-              }}
-              size={25}
-            />
-            <text
-              style={{
-                justifyContent: 'center',
-                display: 'flex',
-                // textAlign: 'center',
-                fontSize: 18,
-                marginLeft: '2%',
-                color: 'black',
-                // textDecorationLine: 'line-through',
-              }}
-            >
-              6 review
-            </text>
-          </div>
-          <text
-            style={{
-              justifyContent: 'center',
-              display: 'flex',
-              // textAlign: 'center',
-              fontSize: 18,
-              color: 'red',
-              marginTop: '4%',
+  //               // backgroundColor: '#754133',
+  //               color: '#754133',
+  //             }}
+  //             size={25}
+  //           />{' '}
+  //           <FaStar
+  //             style={{
+  //               marginLeft: '2%',
 
-              textDecorationLine: 'line-through',
-            }}
-          >
-            {product.ProductDiscount}
-          </text>
+  //               // backgroundColor: '#754133',
+  //               color: '#754133',
+  //             }}
+  //             size={25}
+  //           />{' '}
+  //           <FaStarHalfAlt
+  //             style={{
+  //               marginLeft: '2%',
+  //               // backgroundColor: '#754133',
+  //               color: '#754133',
+  //             }}
+  //             size={25}
+  //           />
+  //           <text
+  //             style={{
+  //               justifyContent: 'center',
+  //               display: 'flex',
+  //               // textAlign: 'center',
+  //               fontSize: 18,
+  //               marginLeft: '2%',
+  //               color: 'black',
+  //               // textDecorationLine: 'line-through',
+  //             }}
+  //           >
+  //             6 review
+  //           </text>
+  //         </div>
+  //         <text
+  //           style={{
+  //             justifyContent: 'center',
+  //             display: 'flex',
+  //             // textAlign: 'center',
+  //             fontSize: 18,
+  //             color: 'red',
+  //             marginTop: '4%',
 
-          <text
-            style={{
-              justifyContent: 'center',
-              display: 'flex',
-              // textAlign: 'center',
-              fontSize: 28,
-              color: 'black',
-              marginTop: '4%',
+  //             textDecorationLine: 'line-through',
+  //           }}
+  //         >
+  //           {product.ProductDiscount}
+  //         </text>
 
-              fontWeight: 'bold',
-              // textDecorationLine: 'line-through',
-            }}
-          >
-            {product.ProductPrice}
-          </text>
-        </div>
-      </div>
-    </div>
-  ))
+  //         <text
+  //           style={{
+  //             justifyContent: 'center',
+  //             display: 'flex',
+  //             // textAlign: 'center',
+  //             fontSize: 28,
+  //             color: 'black',
+  //             marginTop: '4%',
+
+  //             fontWeight: 'bold',
+  //             // textDecorationLine: 'line-through',
+  //           }}
+  //         >
+  //           {product.ProductPrice}
+  //         </text>
+  //       </div>
+  //     </div>
+  //   </div>
+  // ))
   return (
     <div className="hero-container">
-      <ul
+      {/* <ul
         style={{
           marginTop: '1%',
           // backgroundColor: '#f2f2f2',
@@ -410,8 +532,8 @@ function HeroSection({}) {
             Hair Care
           </Link>
         </li>
-      </ul>
-      <div
+      </ul> */}
+      {/* <div
         style={{
           // borderBottomWidth: '1px',
           height: '1.5px',
@@ -419,146 +541,115 @@ function HeroSection({}) {
           marginTop: '1%',
           backgroundColor: '#DADADA',
         }}
-      ></div>
+      ></div> */}
+      <div className="img-main">
+        {AllData}
+
+        <div
+          style={{
+            flexDirection: 'row',
+            display: 'flex',
+            // width: '100%',
+          }}
+        >
+          <div
+            // onClick={() => navi('/Cart')}
+            style={{
+              marginTop: '3%',
+              // height: '20%',
+              // width: '10%',
+            }}
+          >
+            <img
+              style={{
+                width: '97%',
+                height: '100%',
+              }}
+              src={'../images/immg1.png'}
+            />
+          </div>
+
+          <div
+            // onClick={() => navi('/Cart')}
+            style={{
+              marginTop: '3%',
+              // height: '20%',
+              // width: '10%',
+            }}
+          >
+            <img
+              style={{
+                width: '97%',
+                height: '100%',
+              }}
+              src={'../images/immg2.png'}
+            />
+          </div>
+          <div
+            // onClick={() => navi('/Cart')}
+            style={{
+              marginTop: '3%',
+              // height: '20%',
+              // width: '10%',
+            }}
+          >
+            <img
+              style={{
+                width: '97%',
+                height: '100%',
+              }}
+              src={'../images/immg3.png'}
+            />
+          </div>
+          <div
+            // onClick={() => navi('/Cart')}
+            style={{
+              marginTop: '3%',
+              // height: '20%',
+              // width: '10%',
+            }}
+          >
+            <img
+              style={{
+                width: '97%',
+                height: '100%',
+              }}
+              src={'../images/immg4.png'}
+            />
+          </div>
+        </div>
+      </div>
+
       <div
         // onClick={() => navi('/Cart')}
         style={{
-          // display: 'flex',
-          // paddingLeft: '3%',
-          // paddingRight: '3%',
           marginTop: '3%',
         }}
       >
         <img
-          // className="cards__item__img"
-          // alt='Travel Image'
           style={{
             width: '100%',
-            height: '20%',
+            height: '10%',
           }}
-          src={'../images/img.png'}
+          src={'../images/imgg10.png'}
         />
-        <text
-          style={{
-            fontSize: '30px',
-            display: 'flex',
-            fontWeight: 'bold',
-            justifyContent: 'center',
-            marginTop: '2%',
-          }}
-        >
-          Fresh Sale
-        </text>
-        <div
-          style={{
-            flexDirection: 'row',
-            display: 'flex',
-            width: '100%',
-          }}
-        >
-          {ProductDetail}
-        </div>
-
-        <div
-          style={{
-            // flexDirection: 'row',
-            // display: 'flex',
-            // justifyContent: 'space-between',
-            marginTop: '2%',
-          }}
-        >
-          <img
-            // className="cards__item__img"
-            // alt='Travel Image'
-            style={{
-              width: '100%',
-              height: '20%',
-            }}
-            src={'../images/img2.png'}
-          />
-        </div>
-        <div
-          style={{
-            // flexDirection: 'row',
-            // display: 'flex',
-            // justifyContent: 'space-between',
-            marginTop: '2%',
-          }}
-        >
-          <img
-            // className="cards__item__img"
-            // alt='Travel Image'
-            style={{
-              width: '100%',
-              height: '20%',
-            }}
-            src={'../images/img3.png'}
-          />
-        </div>
-        <div
-          style={{
-            // flexDirection: 'row',
-            // display: 'flex',
-            // justifyContent: 'space-between',
-            marginTop: '2%',
-          }}
-        >
-          <img
-            // className="cards__item__img"
-            // alt='Travel Image'
-            style={{
-              width: '100%',
-              height: '20%',
-            }}
-            src={'../images/img4.png'}
-          />
-        </div>
-        <div
-          style={{
-            // flexDirection: 'row',
-            // display: 'flex',
-            // justifyContent: 'space-between',
-            marginTop: '2%',
-          }}
-        >
-          <img
-            // className="cards__item__img"
-            // alt='Travel Image'
-            style={{
-              width: '100%',
-              height: '20%',
-            }}
-            src={'../images/img5.png'}
-          />
-        </div>
-        <div
-          style={{
-            flexDirection: 'row',
-            display: 'flex',
-            width: '100%',
-          }}
-        >
-          {ProductDetail}
-        </div>
-        <div
-          style={{
-            // flexDirection: 'row',
-            // display: 'flex',
-            // justifyContent: 'space-between',
-            marginTop: '2%',
-          }}
-        >
-          <img
-            // className="cards__item__img"
-            // alt='Travel Image'
-            style={{
-              width: '100%',
-              height: '20%',
-            }}
-            src={'../images/footer.png'}
-          />
-        </div>
       </div>
+      <div
+        className="img-main"
+        // onClick={() => navi('/Cart')}
+        style={{
+          marginTop: '3%',
+        }}
+      >
+        <img
+          style={{
+            width: '100%',
+            height: '10%',
+          }}
+          src={'../images/imgg11.png'}
+        />
+      </div>
+      <Footer />
     </div>
   )
 }

@@ -17,6 +17,7 @@ import SlidingPane from 'react-sliding-pane'
 import 'react-sliding-pane/dist/react-sliding-pane.css'
 import { render } from 'react-dom'
 import { FaTimes } from 'react-icons/fa'
+import Footer from '../Footer'
 function Cart() {
   const [state, setState] = useState({
     isPaneOpen: false,
@@ -52,150 +53,26 @@ function Cart() {
 
   window.addEventListener('resize', showButton)
   const location = useLocation()
-  const ProductDiscount = location.state.ProductDiscount
-  const ProductName = location.state.ProductName
+  const ProductDiscount = location.state.productOffPrice
+  const ProductName = location.state.productName
 
-  const ProductPrice = location.state.ProductPrice
-  const image = location.state.image
+  const ProductPrice = location.state.productOnPrice
+  const image = location.state.productimg
 
   const vedio = location.state.vedio
+  const Discription = location.state.Discription
 
   // console.log(location)
   return (
     <div className="hero-container">
-      <ul
-        style={{
-          marginTop: '1%',
-          // backgroundColor: '#f2f2f2',
-          // padding: '10%',
-        }}
-        className={click ? 'nav-menu' : 'nav-menu'}
-      >
-        <li
-          style={
-            {
-              // backgroundColor: 'red',
-            }
-          }
-          className="nav-item"
-        >
-          <Link
-            style={{
-              color: 'black',
-              // fontSize: '24px',
-              // width: '100%',
-              // marginLeft: '2%',
-              // textSizeAdjust: '100%',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Categories
-          </Link>
-        </li>
-        <li
-          style={
-            {
-              // backgroundColor: 'red',
-            }
-          }
-          className="nav-item"
-        >
-          <Link
-            style={{
-              color: 'black',
-              // fontSize: '24px',
-              // width: '100%',
-              // marginLeft: '2%',
-              // textSizeAdjust: '100%',
-            }}
-            to="/Brand"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Brands
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Make Up
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Skin Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Health Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Personal Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Baby Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Hair Care
-          </Link>
-        </li>
-      </ul>
       <div
         style={{
           // borderBottomWidth: '1px',
           height: '1.5px',
           width: '100%',
+
           marginTop: '1%',
+          marginBottom: '3%',
           backgroundColor: '#DADADA',
         }}
       ></div>
@@ -204,17 +81,17 @@ function Cart() {
         style={{
           flexDirection: 'row',
           width: '100%',
-          height: '70%',
+          height: '60%',
           display: 'flex',
           // backgroundColor: 'blue',
         }}
       >
         <div
           style={{
-            width: '40%',
+            width: '50%',
             // backgroundColor: 'pink',
             display: 'flex',
-            height: '70%',
+            height: '100%',
             justifyContent: 'center',
           }}
         >
@@ -222,7 +99,7 @@ function Cart() {
             // className="cards__item__img"
             // alt='Travel Image'
             style={{
-              width: '70%',
+              width: '67%',
               //   direction: 'flex',
               // jus
 
@@ -236,7 +113,7 @@ function Cart() {
         <div
           style={{
             // marginLeft: '10%',
-            width: '60%',
+            width: '50%',
             // display: 'flex',
 
             // backgroundColor: 'blue',
@@ -244,8 +121,10 @@ function Cart() {
         >
           <h2
             style={{
-              fontSize: 50,
+              fontSize: 35,
               color: 'black',
+              width: '80%',
+              fontWeight: 'bolder',
             }}
           >
             {ProductName}
@@ -254,22 +133,24 @@ function Cart() {
             style={{
               flexDirection: 'row',
               display: 'flex',
-              marginTop: '4%',
+              marginTop: '3%',
+              alignItems: 'center',
             }}
           >
             <h2
               style={{
-                fontSize: 30,
+                fontWeight: 'bold',
+                fontSize: 35,
                 color: '#F7C17C',
               }}
             >
-              {ProductPrice}
+              Rs.{ProductPrice}
             </h2>
             <h2
               style={{
-                fontSize: 20,
-                color: 'red',
-                marginLeft: '5%',
+                fontSize: 23,
+                color: '#000',
+                marginLeft: '2%',
                 textDecorationLine: 'line-through',
               }}
             >
@@ -279,16 +160,19 @@ function Cart() {
           <div
             style={{
               // borderBottomWidth: '1px',
-              height: '2px',
-              width: '60%',
+              height: '3px',
+              width: '80%',
               marginTop: '4%',
+              marginBottom: '2%',
               backgroundColor: '#F7C17C',
             }}
           ></div>
 
           <h2
             style={{
-              fontSize: 20,
+              fontSize: 18,
+              marginBottom: '2%',
+
               color: 'black',
               //   marginLeft: '5%',
               //   textDecorationLine: 'line-through',
@@ -306,8 +190,9 @@ function Cart() {
               className="boder"
               onClick={decrementCount}
               style={{
-                height: 30,
-                width: 30,
+                height: 40,
+                width: 40,
+                marginRight: 10,
                 // backgroundColor: 'pink',
                 backgroundColor: '#F7C17C',
                 // borderWidth: 1,
@@ -329,7 +214,8 @@ function Cart() {
             <h2
               style={{
                 color: 'black',
-                fontSize: 16,
+                fontSize: 30,
+                marginRight: 10,
               }}
             >
               {count}
@@ -338,8 +224,9 @@ function Cart() {
               onClick={incrementCount}
               className="boder"
               style={{
-                height: 30,
-                width: 30,
+                height: 40,
+                width: 40,
+                marginRight: 10,
                 // backgroundColor: 'pink',
                 backgroundColor: '#F7C17C',
                 // borderWidth: 1,
@@ -359,11 +246,21 @@ function Cart() {
             </div>
           </div>
           <div
+            style={{
+              // borderBottomWidth: '1px',
+              height: '1px',
+              width: '80%',
+              marginTop: '1%',
+              marginBottom: '2%',
+              backgroundColor: '#F7C17C',
+            }}
+          ></div>
+          <div
             onClick={() => setState({ isPaneOpenLeft: true })}
             style={{
-              width: '60%',
+              width: '80%',
               height: 40,
-              borderRadius: 10,
+              borderRadius: 6,
               marginTop: '5%',
 
               backgroundColor: '#F7C17C',
@@ -375,7 +272,7 @@ function Cart() {
             <h2
               style={{
                 color: 'white',
-                // fontSize: 18,
+                fontSize: 16,
 
                 textAlign: 'center',
               }}
@@ -386,10 +283,10 @@ function Cart() {
           {/* <AddToCart /> */}
           <div
             style={{
-              width: '60%',
+              width: '80%',
               height: 40,
               marginTop: '2%',
-              borderRadius: 10,
+              borderRadius: 6,
 
               backgroundColor: 'black',
               display: 'flex',
@@ -400,6 +297,7 @@ function Cart() {
             <h2
               style={{
                 color: 'white',
+                fontSize: 16,
                 textAlign: 'center',
               }}
             >
@@ -412,42 +310,52 @@ function Cart() {
       <text
         style={{
           fontWeight: 'bold',
-          fontSize: 30,
+          fontSize: 20,
 
           color: 'black',
-          marginLeft: '3%',
+          marginLeft: '10%',
         }}
       >
         Discription
       </text>
+      <div
+        style={{
+          // borderBottomWidth: '1px',
+          height: '1px',
+          width: '80.5%',
+          marginTop: '1%',
+          marginBottom: '2%',
+          display: 'flex',
+          flexDirection: 'row',
+          marginLeft: '9%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: '#000',
+        }}
+      ></div>
       <h2
         style={{
           // fontWeight: 'bold',
-          fontSize: 20,
-          color: 'black',
-          marginLeft: '3%',
+          fontSize: 16,
+          width: '80.5%',
+          fontWeight: 'lighter',
+          color: 'grey',
+          marginLeft: '9%',
         }}
       >
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
+        {Discription}
       </h2>
 
       <video
         style={{
+          marginTop: '5%',
           marginLeft: '15%',
         }}
         width="1000"
         height="570"
         controls
       >
-        <source src={vedio} type="video/mp4" />
+        <source src={'../images/vid.mp4'} type="video/mp4" />
       </video>
       <h2
         style={{
@@ -458,7 +366,7 @@ function Cart() {
           marginLeft: '1.7%',
         }}
       >
-        Review
+        Custumer Review
       </h2>
       <div
         style={{
@@ -543,24 +451,7 @@ function Cart() {
         with desktop publishing software like Aldus PageMaker including versions
         of Lorem Ipsum.
       </h2>
-      <div
-        style={{
-          // flexDirection: 'row',
-          // display: 'flex',
-          // justifyContent: 'space-between',
-          marginTop: '2%',
-        }}
-      >
-        <img
-          // className="cards__item__img"
-          // alt='Travel Image'
-          style={{
-            width: '100%',
-            height: '20%',
-          }}
-          src={'../images/footer.png'}
-        />
-      </div>
+      <Footer />
       <SlidingPane
         // closeIcon={<div>Some div containing custom close icon.</div>}
         isOpen={state.isPaneOpenLeft}
@@ -612,16 +503,12 @@ function Cart() {
               >
                 Your Cart
               </h2>
-              <Link
-                to="/"
-                style={{
-                  // backgroundColor: 'black',
-                  color: 'black',
-                  // width: '100%',
-                }}
-              >
-                <FaTimes size={35} />
-              </Link>
+
+              <FaTimes
+                onClick={() => setState({ isPaneOpenLeft: false })}
+                size={35}
+              />
+              {/* </Link> */}
             </div>
             <div
               //   class="shadow-2"
@@ -642,6 +529,8 @@ function Cart() {
                 style={{
                   flexDirection: 'row',
                   display: 'flex',
+
+                  // backgroundColor: 'pink',
                 }}
               >
                 <img
@@ -651,18 +540,29 @@ function Cart() {
                     width: '20%',
                     height: '20%',
                   }}
-                  src={'../images/sofa.png'}
+                  src={image}
                 />
-                <h2
+                <div
                   style={{
-                    fontSize: 16,
-                    color: 'black',
-                    marginLeft: '2%',
+                    flexDirection: 'row',
+                    display: 'flex',
+                    height: '10%',
+
+                    // backgroundColor: 'pink',
                   }}
                 >
-                  Maybelline Ny volumn Express The colossal washable maskara
-                </h2>
-                <FaTimes size={25} />
+                  <h2
+                    style={{
+                      fontSize: 16,
+                      color: 'black',
+                      marginLeft: '2%',
+                      height: 10,
+                    }}
+                  >
+                    {ProductName}
+                  </h2>
+                  <FaTimes size={25} />
+                </div>
               </div>
               <div
                 style={{
@@ -681,18 +581,17 @@ function Cart() {
                     alignItems: 'center',
                   }}
                 >
-                  2
                   {/* Maybelline Ny volumn Express The colossal washable maskara */}
                 </h2>
 
                 <h2
                   style={{
                     fontSize: 25,
-                    color: 'red',
+                    color: '#F7C17C',
                     marginLeft: '8%',
                   }}
                 >
-                  RS.3803
+                  RS. {ProductPrice}
                   {/* Maybelline Ny volumn Express The colossal washable maskara */}
                 </h2>
 
@@ -700,14 +599,14 @@ function Cart() {
                   style={{
                     textDecorationLine: 'line-through',
                     fontSize: 16,
-                    color: 'lightgrey',
+                    color: 'grey',
                     display: 'flex',
                     alignItems: 'center',
                     marginLeft: '5%',
                   }}
                 >
                   {/* Maybelline Ny volumn Express The colossal washable maskara */}
-                  RS.4,803
+                  RS.{ProductDiscount}
                 </h2>
               </div>
             </div>
@@ -746,10 +645,11 @@ function Cart() {
                     color: 'white',
                   }}
                 >
-                  Go To Order
+                  Place Order
                 </h2>
               </div>
               <div
+                onClick={() => setState({ isPaneOpenLeft: false })}
                 style={{
                   width: '40%',
                   height: 40,
@@ -828,7 +728,7 @@ function Cart() {
                     color: 'black',
                   }}
                 >
-                  Rs 1246
+                  Rs. {ProductDiscount}
                 </h2>{' '}
               </div>
               <div
@@ -854,7 +754,7 @@ function Cart() {
                     color: 'black',
                   }}
                 >
-                  Rs 3803
+                  Rs. {ProductPrice}
                 </h2>{' '}
               </div>
             </div>

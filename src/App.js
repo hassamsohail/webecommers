@@ -10,6 +10,7 @@ import Cart from './components/pages/Cart'
 import Addcart from './components/pages/Addcart'
 import Addcart2 from './components/pages/Addcart2'
 import Create from './components/pages/Create'
+import Footer from './components/Footer'
 
 function App() {
   return (

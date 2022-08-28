@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
-
+// import { Auth } from 'firebase/auth'
 const firebaseConfig = {
   apiKey: 'AIzaSyCjGiovIM0JtplcpQQ24cbmLdLstpQnnRU',
   authDomain: 'webcommerce-f85da.firebaseapp.com',
