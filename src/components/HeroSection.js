@@ -1,33 +1,20 @@
-// import React from 'react'
 import React, { useState, useEffect } from 'react'
-// import sofa from '../images/sofa.png'
 import '../App.css'
 import { Button } from './Button'
 import './HeroSection.css'
 import './Navbar.css'
 import { FaPlusCircle } from 'react-icons/fa'
 
-// import { useNavigate } from 'react-router-dom'
 import { Link, Route, Routes } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 import { FaStarHalfAlt } from 'react-icons/fa'
 import { useHistory } from 'react-router-dom'
-// import { useNavigate } from 'react-router-dom'
-// import { useNavigate } from '@reach/router'
 function HeroSection({}) {
-  // const history = useNavigate()
-  // const nextPage = (e) => {
-  //   e.preventDefault()
-  //   history('/Cart',{
-  // })
+
   let history = useHistory()
   const ClickHandle = () => {}
-  // }
-  // const navi = useNavigate()
-  // const navigate =
-  // const ClickHandle = () => {
-  //   navigate('/Cart')
-  // }
+
+
   const dat = [{}]
   const Product = [
     {
@@ -35,49 +22,37 @@ function HeroSection({}) {
       vedio: '/images/vid.mp4',
 
       src: '../images/Item1.png',
-      // Image: '../images/sofa.png',
-      // photo: sofa,
       ProductName: ' Mascara',
       ProductPrice: 'Rs25000',
       ProductDiscount: 'Rs5000',
-      // ProductRating:""
     },
     {
       id: 1,
 
       vedio: '/images/vid.mp4',
       src: '../images/sofa.png',
-      // Image: '../images/sofa.png',
-      // photo: sofa,
       ProductName: "Woman's Makeup bag",
       ProductPrice: 'Rs25000',
       ProductDiscount: 'Rs5000',
-      // ProductRating:""
     },
     {
       id: 1,
 
       src: '../images/sofa.png',
-      // Image: '../images/sofa.png',
-      // photo: sofa,
       ProductName: "Woman's Makeup bag",
       ProductPrice: 'Rs25000',
       ProductDiscount: 'Rs5000',
       vedio: '/images/vid.mp4',
 
-      // ProductRating:""
     },
     {
       id: 1,
 
       src: '../images/sofa.png',
-      // Image: '../images/sofa.png',
-      // photo: sofa,
       ProductName: "Woman's Makeup bag",
       ProductPrice: 'Rs25000',
       ProductDiscount: 'Rs5000',
       vedio: '/images/vid.mp4',
-      // ProductRating:""
     },
   ]
   const [click, setClick] = useState(false)
@@ -99,7 +74,6 @@ function HeroSection({}) {
 
   window.addEventListener('resize', showButton)
   const ProductDetail = Product.map((product) => (
-    // <Link
 
     <div
       onClick={() => {
@@ -112,19 +86,15 @@ function HeroSection({}) {
         })
       }}
       style={{
-        // backgroundColor: 'pink',
         marginRight: '1%',
         width: '97%',
       }}
     >
       <div
-        // onClick={nextPage}
         style={{
           width: '100%',
           height: 400,
           justifyContent: 'center',
-          // display: 'flex',
-          // backgroundColor: 'pink',
         }}
       >
         <text
@@ -145,7 +115,6 @@ function HeroSection({}) {
             width: 50,
             paddingLeft: 3,
             position: 'absolute',
-            // left: 0,
             marginTop: '2%',
             backgroundColor: '#08C0E4',
           }}
@@ -153,8 +122,6 @@ function HeroSection({}) {
           New
         </text>
         <img
-          // className="cards__item__img"
-          // alt='Travel Image'
           style={{
             width: '50%',
             marginLeft: '23%',
@@ -174,7 +141,6 @@ function HeroSection({}) {
             style={{
               justifyContent: 'center',
               display: 'flex',
-              // textAlign: 'center',
               fontSize: 24,
               marginTop: '2%',
 
@@ -193,7 +159,6 @@ function HeroSection({}) {
           >
             <FaStar
               style={{
-                // backgroundColor: '#754133',
                 color: '#754133',
                 marginLeft: '1%',
               }}
@@ -203,7 +168,6 @@ function HeroSection({}) {
               style={{
                 marginLeft: '2%',
 
-                // backgroundColor: '#754133',
                 color: '#754133',
               }}
               size={25}
@@ -212,7 +176,6 @@ function HeroSection({}) {
               style={{
                 marginLeft: '2%',
 
-                // backgroundColor: '#754133',
                 color: '#754133',
               }}
               size={25}
@@ -221,7 +184,6 @@ function HeroSection({}) {
               style={{
                 marginLeft: '2%',
 
-                // backgroundColor: '#754133',
                 color: '#754133',
               }}
               size={25}
@@ -242,7 +204,6 @@ function HeroSection({}) {
                 fontSize: 18,
                 marginLeft: '2%',
                 color: 'black',
-                // textDecorationLine: 'line-through',
               }}
             >
               6 review
@@ -252,7 +213,6 @@ function HeroSection({}) {
             style={{
               justifyContent: 'center',
               display: 'flex',
-              // textAlign: 'center',
               fontSize: 18,
               color: 'red',
               marginTop: '4%',
@@ -267,13 +227,11 @@ function HeroSection({}) {
             style={{
               justifyContent: 'center',
               display: 'flex',
-              // textAlign: 'center',
               fontSize: 28,
               color: 'black',
               marginTop: '4%',
 
               fontWeight: 'bold',
-              // textDecorationLine: 'line-through',
             }}
           >
             {product.ProductPrice}
@@ -287,15 +245,12 @@ function HeroSection({}) {
       <ul
         style={{
           marginTop: '1%',
-          // backgroundColor: '#f2f2f2',
-          // padding: '10%',
         }}
         className={click ? 'nav-menu' : 'nav-menu'}
       >
         <li
           style={
             {
-              // backgroundColor: 'red',
             }
           }
           className="nav-item"
@@ -303,10 +258,6 @@ function HeroSection({}) {
           <Link
             style={{
               color: 'black',
-              // fontSize: '24px',
-              // width: '100%',
-              // marginLeft: '2%',
-              // textSizeAdjust: '100%',
             }}
             to="/"
             className="nav-links"
@@ -318,7 +269,6 @@ function HeroSection({}) {
         <li
           style={
             {
-              // backgroundColor: 'red',
             }
           }
           className="nav-item"
@@ -326,10 +276,6 @@ function HeroSection({}) {
           <Link
             style={{
               color: 'black',
-              // fontSize: '24px',
-              // width: '100%',
-              // marginLeft: '2%',
-              // textSizeAdjust: '100%',
             }}
             to="/Brand"
             className="nav-links"
@@ -413,7 +359,6 @@ function HeroSection({}) {
       </ul>
       <div
         style={{
-          // borderBottomWidth: '1px',
           height: '1.5px',
           width: '100%',
           marginTop: '1%',
@@ -421,17 +366,13 @@ function HeroSection({}) {
         }}
       ></div>
       <div
-        // onClick={() => navi('/Cart')}
         style={{
-          // display: 'flex',
-          // paddingLeft: '3%',
-          // paddingRight: '3%',
+
           marginTop: '3%',
         }}
       >
         <img
-          // className="cards__item__img"
-          // alt='Travel Image'
+       
           style={{
             width: '100%',
             height: '20%',
@@ -461,15 +402,10 @@ function HeroSection({}) {
 
         <div
           style={{
-            // flexDirection: 'row',
-            // display: 'flex',
-            // justifyContent: 'space-between',
             marginTop: '2%',
           }}
         >
           <img
-            // className="cards__item__img"
-            // alt='Travel Image'
             style={{
               width: '100%',
               height: '20%',
@@ -479,15 +415,11 @@ function HeroSection({}) {
         </div>
         <div
           style={{
-            // flexDirection: 'row',
-            // display: 'flex',
-            // justifyContent: 'space-between',
             marginTop: '2%',
           }}
         >
           <img
-            // className="cards__item__img"
-            // alt='Travel Image'
+
             style={{
               width: '100%',
               height: '20%',
@@ -497,15 +429,11 @@ function HeroSection({}) {
         </div>
         <div
           style={{
-            // flexDirection: 'row',
-            // display: 'flex',
-            // justifyContent: 'space-between',
             marginTop: '2%',
           }}
         >
           <img
-            // className="cards__item__img"
-            // alt='Travel Image'
+
             style={{
               width: '100%',
               height: '20%',
