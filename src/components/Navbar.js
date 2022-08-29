@@ -453,9 +453,243 @@ function Navbar() {
             width: '15%',
           }}
         />
-        {ProductCatagories}
+        <div class="dropdown">
+          <button
+            class="dropbtn"
+            style={{
+              width: 140,
+              flexDirection: 'row',
+              color: '#fff',
+            }}
+          >
+            Brands
+          </button>
 
-        {/* <li> */}
+          <div class="dropdown-content">
+            <a
+              onClick={() => {
+                history.push('/Essence', {})
+              }}
+              style={{
+                color: '#000',
+              }}
+            >
+              Essence
+            </a>
+            <a
+              onClick={() => {
+                history.push('/Janssen', {})
+              }}
+            >
+              Janssen
+            </a>
+            <a
+              onClick={() => {
+                history.push('/Nutrifactor', {})
+              }}
+            >
+              Nutrifactor
+            </a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button
+            class="dropbtn"
+            style={{
+              width: 140,
+              flexDirection: 'row',
+              color: '#fff',
+            }}
+          >
+            MakeUp
+          </button>
+
+          <div class="dropdown-content">
+            <a
+              onClick={() => {
+                history.push('/LipStick', {})
+              }}
+              style={{
+                color: '#000',
+              }}
+            >
+              LipStick
+            </a>
+            <a
+              onClick={() => {
+                history.push('/Blush', {})
+              }}
+            >
+              Blush
+            </a>
+            <a
+              onClick={() => {
+                history.push('/Eyeliner', {})
+              }}
+            >
+              Eyeliner
+            </a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button
+            class="dropbtn"
+            style={{
+              width: 140,
+              flexDirection: 'row',
+              color: '#fff',
+            }}
+          >
+            Skin Care
+          </button>
+
+          <div class="dropdown-content">
+            <a
+              onClick={() => {
+                history.push('/FaceWash', {})
+              }}
+              style={{
+                color: '#000',
+              }}
+            >
+              FaceWash
+            </a>
+            <a
+              onClick={() => {
+                history.push('/FaceMask', {})
+              }}
+            >
+              FaceMask
+            </a>
+            <a
+              onClick={() => {
+                history.push('/DarkSpots', {})
+              }}
+            >
+              DarkSpots
+            </a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button
+            class="dropbtn"
+            style={{
+              width: 140,
+              flexDirection: 'row',
+              color: '#fff',
+            }}
+          >
+            Hair Care
+          </button>
+
+          <div class="dropdown-content">
+            <a
+              onClick={() => {
+                history.push('/HairOils', {})
+              }}
+              style={{
+                color: '#000',
+              }}
+            >
+              HairOils
+            </a>
+            <a
+              onClick={() => {
+                history.push('/Hairfall', {})
+              }}
+            >
+              Hairfall
+            </a>
+            <a
+              onClick={() => {
+                history.push('/Dandruff', {})
+              }}
+            >
+              Dandruff
+            </a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button
+            class="dropbtn"
+            style={{
+              width: 140,
+              flexDirection: 'row',
+              color: '#fff',
+            }}
+          >
+            Health Care
+          </button>
+
+          <div class="dropdown-content">
+            <a
+              onClick={() => {
+                history.push('/ManEnergyBooster', {})
+              }}
+              style={{
+                color: '#000',
+              }}
+            >
+              Man Energy Booster
+            </a>
+            <a
+              onClick={() => {
+                history.push('/EnergyBooster', {})
+              }}
+            >
+              Energy Booster
+            </a>
+            <a
+              onClick={() => {
+                history.push('/WomenEnergyBooster', {})
+              }}
+            >
+              Women Energy Booster
+            </a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button
+            class="dropbtn"
+            style={{
+              width: 140,
+              flexDirection: 'row',
+              color: '#fff',
+            }}
+          >
+            Personal Care
+          </button>
+
+          <div class="dropdown-content">
+            <a
+              onClick={() => {
+                history.push('/WaxStrips', {})
+              }}
+              style={{
+                color: '#000',
+              }}
+            >
+              Wax Strips
+            </a>
+            <a
+              onClick={() => {
+                history.push('/VaginalCare', {})
+              }}
+            >
+              VaginalCare
+            </a>
+            <a
+              onClick={() => {
+                history.push('/Depilatory', {})
+              }}
+            >
+              Depilatory
+            </a>
+          </div>
+        </div>
+
         <Link to="/">
           <AiOutlineSearch
             style={{
