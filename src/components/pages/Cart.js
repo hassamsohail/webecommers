@@ -410,7 +410,6 @@ function Cart() {
         <FaStar
           style={{
             marginLeft: '2%',
-
             // backgroundColor: '#754133',
             color: '#754133',
           }}

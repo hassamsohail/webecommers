@@ -15,7 +15,7 @@ import SlidingPane from 'react-sliding-pane'
 import 'react-sliding-pane/dist/react-sliding-pane.css'
 import { render } from 'react-dom'
 import { FaTimes } from 'react-icons/fa'
-import { FaRegHeart } from 'react-icons/fa'
+// import { AiOutlineSearch } from 'react-icons/ai'
 import { useHistory } from 'react-router-dom'
 
 function Navbar() {
@@ -447,56 +447,7 @@ function Navbar() {
 
           {/* {button && <Button buttonStyle="btn--outline">SIGN UP</Button>} */}
         </div>
-        {/* <div
-          className="nav-serach"
-          style={
-            {
-              // flexDirection: 'row',
-            }
-          }
-        >
-          <FaSearch
-            style={{
-              color: '#F7C17C',
-              // marginTop: '1.5%',
-              marginLeft: '3%',
-              // background: 'red',
-            }}
-            size={30}
-          />
 
-          <input
-            style={{
-              borderWidth: 0,
-              // borderRadius: '5px',
-              width: '70%',
-              height: '100%',
-              // background: '#F7C17C',
-              marginLeft: '3%',
-              marginTop: '0%',
-
-              fontSize: '1.5rem',
-              fontWeight: 'normal',
-            }}
-            type="text"
-            value={name}
-            placeholder={'What do you Want  to...'}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <div
-            style={
-              {
-                // alignSelf: 'center',
-                // justifyContent: 'center',
-              }
-            }
-            className="nav-butn"
-          >
-            <text style={{}} className="nav-text">
-              Search
-            </text>
-          </div>
-        </div> */}
         <div
           style={{
             width: '15%',
@@ -508,6 +459,7 @@ function Navbar() {
         {/* <li> */}
         <Link to="/Login">
           <AiOutlineSearch
+            onClick={() => setState({ isPaneOpenLeft: true })}
             style={{
               color: '#000',
 
@@ -517,8 +469,7 @@ function Navbar() {
             size={20}
           />
         </Link>
-        {/* </li> */}
-        {/* <li> */}
+
         <Link to="/Login">
           <FaRegUser
             style={{
@@ -530,11 +481,9 @@ function Navbar() {
             size={20}
           />
         </Link>
-        {/* </li> */}
-        {/* <li> */}
+
         <Link>
           <FaDollyFlatbed
-            onClick={() => setState({ isPaneOpenLeft: true })}
             style={{
               color: '#000',
               // marginLeft: 10,
@@ -550,131 +499,14 @@ function Navbar() {
           // closeIcon={<div>Some div containing custom close icon.</div>}
           isOpen={state.isPaneOpenLeft}
           // title="Hey, it is optional pane title.  I can be React component too."
-          from="right"
+          from="top"
           // title={false}
-          hideHeader={true}
-          width="700px"
+
+          // hideHeader={true}
+          width="100%"
           onRequestClose={() => setState({ isPaneOpenLeft: false })}
         >
-          <div
-            // className="hero-container"
-            style={{
-              marginTop: '20%',
-              width: '100%',
-              padding: 20,
-              // marginLeft: '60%',
-            }}
-          >
-            <div
-              style={{
-                flexDirection: 'row',
-                display: 'flex',
-                // alignItems:
-                justifyContent: 'space-between',
-                width: '100%',
-                // backgroundColor: 'black',
-              }}
-            >
-              <h2
-                style={{
-                  fontSize: 30,
-                  color: 'black',
-                }}
-              >
-                Your Cart
-              </h2>
-              <Link
-                to="/"
-                style={{
-                  // backgroundColor: 'black',
-                  color: 'black',
-                  // width: '100%',
-                }}
-              >
-                <FaTimes size={35} />
-              </Link>
-            </div>
-            <h2
-              style={{
-                fontSize: 30,
-                color: 'black',
-                width: '100%',
-                marginTop: '30%',
-
-                justifyContent: 'center',
-                alignItems: 'center',
-                display: 'flex',
-              }}
-            >
-              Your Cart is Currently Empty
-            </h2>
-            <h2
-              style={{
-                fontSize: 20,
-                color: 'black',
-                width: '100%',
-                textAlign: 'center',
-                justifyContent: 'center',
-                alignItems: 'center',
-                display: 'flex',
-                marginTop: '3%',
-              }}
-            >
-              We found , everything you need to support healthy oral care habit
-              for life.
-            </h2>
-
-            <div
-              style={{
-                //   fontSize: 30,
-                //   color: 'black',
-                width: '100%',
-                marginTop: '3%',
-
-                justifyContent: 'center',
-                alignItems: 'center',
-                display: 'flex',
-              }}
-            >
-              <div
-                style={{
-                  height: 50,
-                  width: '50%',
-                  borderRadius: 30,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  display: 'flex',
-                  flexDirection: 'row',
-                  backgroundColor: '#754133',
-                }}
-              >
-                <FaItchIo
-                  size={30}
-                  style={{
-                    marginRight: '7%',
-                    color: 'white',
-                  }}
-                />
-                {/* <li> */}
-                <Link
-                  to="/"
-                  // className="nav-links"
-                  // onClick={closeMobileMenu}
-                >
-                  <h2
-                    style={{
-                      fontSize: 20,
-                      color: 'white',
-                    }}
-                  >
-                    Shop Now
-                  </h2>
-                </Link>
-                {/* </li> */}
-              </div>
-            </div>
-          </div>
-          {/* <div>And I am pane content on left.</div> */}
+          <div></div>
         </SlidingPane>
       </div>
     </>
