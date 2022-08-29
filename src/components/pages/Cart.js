@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 import { FaStarHalfAlt } from 'react-icons/fa'
 import { useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import { FaItchIo } from 'react-icons/fa'
 import SlidingPane from 'react-sliding-pane'
@@ -19,6 +20,8 @@ import { render } from 'react-dom'
 import { FaTimes } from 'react-icons/fa'
 import Footer from '../Footer'
 function Cart() {
+  let history = useHistory()
+
   const [state, setState] = useState({
     isPaneOpen: false,
     isPaneOpenLeft: false,
@@ -256,7 +259,9 @@ function Cart() {
             }}
           ></div>
           <div
-            onClick={() => setState({ isPaneOpenLeft: true })}
+            onClick={() => {
+              setState({ isPaneOpenLeft: true })
+            }}
             style={{
               width: '80%',
               height: 40,
@@ -621,6 +626,9 @@ function Cart() {
               }}
             >
               <div
+                onClick={() => {
+                  history.push('/info', {})
+                }}
                 style={{
                   width: '40%',
                   height: 40,

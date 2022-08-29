@@ -11,6 +11,7 @@ import Addcart from './components/pages/Addcart'
 import Addcart2 from './components/pages/Addcart2'
 import Create from './components/pages/Create'
 import Footer from './components/Footer'
+import info from './components/pages/info'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Addcart" component={Addcart} />
         <Route path="/Addcart2" component={Addcart2} />
         <Route path="/Create" component={Create} />
+        <Route path="/info" component={info} />
 
         {/* </Switch> */}
       </Routes>

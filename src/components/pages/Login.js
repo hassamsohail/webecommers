@@ -10,6 +10,7 @@ import { useHistory } from 'react-router-dom'
 import '../HeroSection.css'
 // import './Navbar.css'
 import { auth } from '../../firebase'
+import Footer from '../Footer'
 // import { useNavigate } from '@reach/router'
 
 function Login() {
@@ -57,133 +58,6 @@ function Login() {
 
   return (
     <div className="hero-container">
-      <ul
-        style={{
-          marginTop: '1%',
-          // backgroundColor: '#f2f2f2',
-          // padding: '10%',
-        }}
-        className={click ? 'nav-menu' : 'nav-menu'}
-      >
-        <li
-          style={
-            {
-              // backgroundColor: 'red',
-            }
-          }
-          className="nav-item"
-        >
-          <Link
-            style={{
-              color: 'black',
-              // fontSize: '24px',
-              // width: '100%',
-              // marginLeft: '2%',
-              // textSizeAdjust: '100%',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Categories
-          </Link>
-        </li>
-        <li
-          style={
-            {
-              // backgroundColor: 'red',
-            }
-          }
-          className="nav-item"
-        >
-          <Link
-            style={{
-              color: 'black',
-              // fontSize: '24px',
-              // width: '100%',
-              // marginLeft: '2%',
-              // textSizeAdjust: '100%',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Brands
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/Category"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Make Up
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/Billing"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Skin Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/Order"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Health Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/Report"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Personal Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/Report"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Baby Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/Report"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Hair Care
-          </Link>
-        </li>
-      </ul>
       <div
         style={{
           // borderBottomWidth: '1px',
@@ -320,24 +194,7 @@ function Login() {
           {/* </li> */}
         </div>
       </div>
-      <div
-        style={{
-          // flexDirection: 'row',
-          // display: 'flex',
-          // justifyContent: 'space-between',
-          marginTop: '2%',
-        }}
-      >
-        <img
-          // className="cards__item__img"
-          // alt='Travel Image'
-          style={{
-            width: '100%',
-            height: '20%',
-          }}
-          src={'../images/footer.png'}
-        />
-      </div>
+      <Footer />
     </div>
   )
 }

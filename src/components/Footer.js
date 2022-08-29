@@ -2,14 +2,18 @@ import React from 'react'
 import './Footer.css'
 import { Button } from './Button'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 function Footer() {
+  let history = useHistory()
+
   return (
     <div className="footer-container">
       <div
         // className="SubView"
         style={{
           flexDirection: 'row',
+          marginBottom: '2%',
           // backgroundColor: 'pink',
           // justify-content: center;
           // alignItems: 'center',
@@ -48,16 +52,28 @@ function Footer() {
         </text>
 
         <text
+          onClick={() => {
+            history.push('/Login', {
+              // TitleMain: item.title,
+              // SubArray: item.subarry,
+            })
+          }}
           className="text"
           style={{
             marginRight: '4%',
             // width: '20%',
           }}
         >
-          Sign In
+          Log In
         </text>
 
         <text
+          onClick={() => {
+            history.push('/Create', {
+              // TitleMain: item.title,
+              // SubArray: item.subarry,
+            })
+          }}
           className="text"
           style={{
             marginRight: '4%',
@@ -67,6 +83,58 @@ function Footer() {
           Sign Up
         </text>
       </div>
+
+      <text
+        style={{
+          fontSize: 20,
+          color: '#f7c17c',
+          textAlign: 'center',
+          // display: 'flex',
+          marginLeft: '40%',
+          marginTop: '5%',
+        }}
+      >
+        Place The Order & Never Miss A Sale
+      </text>
+      <div
+        style={{
+          // borderBottomWidth: '1px',
+          height: '1.5px',
+          width: '20%',
+          marginLeft: '40%',
+
+          justifyContent: 'center',
+          display: 'flex',
+          marginTop: '1%',
+          marginBottom: '1%',
+          backgroundColor: '#f7c17c',
+        }}
+      ></div>
+      <text
+        style={{
+          fontSize: 12,
+          color: '#000',
+          textAlign: 'center',
+          // display: 'flex',
+          marginLeft: '40%',
+          marginTop: 10,
+        }}
+      >
+        {/* copyright © Ms Cosmetics 2022. */}
+        All your information are protected and belong to privacy notice.
+      </text>
+      <text
+        style={{
+          fontSize: 16,
+          color: '#f7c17c',
+          textAlign: 'center',
+          // display: 'flex',
+          marginLeft: '41%',
+          marginTop: 10,
+        }}
+      >
+        copyright © Ms Cosmetics 2022.
+      </text>
     </div>
   )
 }
