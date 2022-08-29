@@ -73,42 +73,418 @@ function HeroSection({}) {
       img: '../images/imgg2.png',
       // width:
       title: 'FLASH WEEKEND SALE ',
+      subarry: [
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
+          productOffPrice: '1,99',
+          productOnPrice: '839',
+          OffPrice: '560',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/2.PNG',
+          Discription:
+            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
+        },
+        {
+          productName:
+            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
+          productOffPrice: '1,995',
+          productOnPrice: '1,197',
+          OffPrice: '798',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/3.PNG',
+          Discription:
+            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
+        },
+        {
+          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productOffPrice: '1,890',
+          productOnPrice: '1,134',
+          OffPrice: '756',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/4.PNG',
+          Discription:
+            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
+        },
+      ],
     },
 
     {
       img: '../images/imgg3.png',
       // width:
       title: 'THE ORDINARY SERUMS - SALE',
+      subarry: [
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
+          productOffPrice: '1,99',
+          productOnPrice: '839',
+          OffPrice: '560',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/2.PNG',
+          Discription:
+            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
+        },
+        {
+          productName:
+            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
+          productOffPrice: '1,995',
+          productOnPrice: '1,197',
+          OffPrice: '798',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/3.PNG',
+          Discription:
+            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
+        },
+        {
+          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productOffPrice: '1,890',
+          productOnPrice: '1,134',
+          OffPrice: '756',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/4.PNG',
+          Discription:
+            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
+        },
+      ],
     },
     {
       img: '../images/imgg4.png',
       // width:
       title: 'Maybelline New York',
+      subarry: [
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
+          productOffPrice: '1,99',
+          productOnPrice: '839',
+          OffPrice: '560',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/2.PNG',
+          Discription:
+            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
+        },
+        {
+          productName:
+            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
+          productOffPrice: '1,995',
+          productOnPrice: '1,197',
+          OffPrice: '798',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/3.PNG',
+          Discription:
+            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
+        },
+        {
+          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productOffPrice: '1,890',
+          productOnPrice: '1,134',
+          OffPrice: '756',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/4.PNG',
+          Discription:
+            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
+        },
+      ],
     },
     {
       img: '../images/imgg5.png',
       // width:
       title: 'Maybelline New York',
+      subarry: [
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
+          productOffPrice: '1,99',
+          productOnPrice: '839',
+          OffPrice: '560',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/2.PNG',
+          Discription:
+            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
+        },
+        {
+          productName:
+            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
+          productOffPrice: '1,995',
+          productOnPrice: '1,197',
+          OffPrice: '798',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/3.PNG',
+          Discription:
+            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
+        },
+        {
+          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productOffPrice: '1,890',
+          productOnPrice: '1,134',
+          OffPrice: '756',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/4.PNG',
+          Discription:
+            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
+        },
+      ],
     },
     {
       img: '../images/imgg6.png',
       // width:
       title: 'Maybelline New York',
+      subarry: [
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
+          productOffPrice: '1,99',
+          productOnPrice: '839',
+          OffPrice: '560',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/2.PNG',
+          Discription:
+            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
+        },
+        {
+          productName:
+            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
+          productOffPrice: '1,995',
+          productOnPrice: '1,197',
+          OffPrice: '798',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/3.PNG',
+          Discription:
+            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
+        },
+        {
+          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productOffPrice: '1,890',
+          productOnPrice: '1,134',
+          OffPrice: '756',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/4.PNG',
+          Discription:
+            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
+        },
+      ],
     },
     {
       img: '../images/imgg7.png',
       // width:
       title: 'Maybelline New York',
+      subarry: [
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
+          productOffPrice: '1,99',
+          productOnPrice: '839',
+          OffPrice: '560',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/2.PNG',
+          Discription:
+            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
+        },
+        {
+          productName:
+            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
+          productOffPrice: '1,995',
+          productOnPrice: '1,197',
+          OffPrice: '798',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/3.PNG',
+          Discription:
+            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
+        },
+        {
+          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productOffPrice: '1,890',
+          productOnPrice: '1,134',
+          OffPrice: '756',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/4.PNG',
+          Discription:
+            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
+        },
+      ],
     },
     {
       img: '../images/imgg8.png',
       // width:
       title: 'Maybelline New York',
+      subarry: [
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
+          productOffPrice: '1,99',
+          productOnPrice: '839',
+          OffPrice: '560',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/2.PNG',
+          Discription:
+            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
+        },
+        {
+          productName:
+            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
+          productOffPrice: '1,995',
+          productOnPrice: '1,197',
+          OffPrice: '798',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/3.PNG',
+          Discription:
+            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
+        },
+        {
+          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productOffPrice: '1,890',
+          productOnPrice: '1,134',
+          OffPrice: '756',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/4.PNG',
+          Discription:
+            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
+        },
+      ],
     },
     {
       img: '../images/imgg9.png',
       // width:
       title: 'Maybelline New York',
+      subarry: [
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
+          productOffPrice: '1,99',
+          productOnPrice: '839',
+          OffPrice: '560',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/2.PNG',
+          Discription:
+            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
+        },
+        {
+          productName:
+            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
+          productOffPrice: '1,995',
+          productOnPrice: '1,197',
+          OffPrice: '798',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/3.PNG',
+          Discription:
+            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
+        },
+        {
+          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productOffPrice: '1,890',
+          productOnPrice: '1,134',
+          OffPrice: '756',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/4.PNG',
+          Discription:
+            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
+        },
+      ],
     },
   ]
   // const history = useNavigate()
