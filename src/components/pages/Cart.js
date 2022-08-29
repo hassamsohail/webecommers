@@ -613,6 +613,16 @@ function Cart() {
                   {/* Maybelline Ny volumn Express The colossal washable maskara */}
                   RS.{ProductDiscount}
                 </h2>
+                <h2
+                  style={{
+                    color: 'black',
+                    fontSize: 20,
+                    marginRight: 10,
+                    marginLeft: 10,
+                  }}
+                >
+                  {count}
+                </h2>
               </div>
             </div>
             <div

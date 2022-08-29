@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Footer from '../Footer'
+import { useHistory } from 'react-router-dom'
 
 export default function info() {
   const [Email, setEmail] = useState('')
@@ -9,6 +10,7 @@ export default function info() {
   const [Address, setAddress] = useState('')
   const [CityName, setCityName] = useState('')
   const [PhoneNumber, setPhoneNumber] = useState('')
+  let history = useHistory()
 
   return (
     <div
@@ -193,6 +195,9 @@ export default function info() {
         }}
       >
         <div
+          onClick={() => {
+            history.push('/')
+          }}
           style={{
             height: 50,
             width: 120,
