@@ -161,6 +161,7 @@ function Login() {
         </div>
         <div
           style={{
+            marginTop: '1%',
             display: 'flex',
             flexDirection: 'row',
             marginLeft: '24%',

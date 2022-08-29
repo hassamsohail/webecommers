@@ -111,7 +111,9 @@ function Create() {
         </text>
         <form
           style={{
-            padding: 30,
+            // padding: 30,
+            marginTop: '3%',
+            marginLeft: 26,
           }}
         >
           <label>
@@ -134,7 +136,10 @@ function Create() {
         </form>
         <form
           style={{
-            padding: 30,
+            marginTop: '3%',
+
+            // marginTop: 10,
+            marginLeft: 26,
           }}
         >
           <label>
@@ -157,7 +162,10 @@ function Create() {
         </form>
         <form
           style={{
-            paddingLeft: 30,
+            // marginTop: 10,
+            marginTop: '3%',
+
+            marginLeft: 26,
           }}
         >
           <label>
@@ -166,7 +174,7 @@ function Create() {
               type="text"
               value={Email}
               style={{
-                width: '39%',
+                width: '40%',
                 paddingLeft: '1%',
                 height: 40,
                 marginLeft: '5%',
@@ -179,7 +187,10 @@ function Create() {
         </form>
         <form
           style={{
-            padding: 30,
+            // marginTop: 10,
+            marginTop: '3%',
+
+            marginLeft: 26,
           }}
         >
           <label>
@@ -201,6 +212,9 @@ function Create() {
           </label>
         </form>
         <button
+          style={{
+            marginTop: '3%',
+          }}
           disabled={submitButtonDisabled}
           onClick={HandleSubmit}
           className="button"
@@ -226,6 +240,7 @@ function Create() {
             style={{
               width: '30%',
               color: 'black',
+              marginTop: '3%',
             }}
             to="/Login"
 

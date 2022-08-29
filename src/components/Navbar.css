@@ -1,5 +1,5 @@
 .navbar {
-  /* background-color: #fff; */
+  background-color: #262523;
   height: 103px;
   display: flex;
   padding-left: 120px;
@@ -47,6 +47,7 @@
   /* alignItems: 'center', */
   /* justifyContent: 'center', */
 }
+
 .navbar-container {
   display: flex;
   justify-content: center;
@@ -280,6 +281,7 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  border-radius: 20;
 }
 
 .dropdown {
@@ -290,6 +292,8 @@
 .dropdown .dropbtn {
   font-size: 16px;
   border: none;
+  border-radius: 20;
+
   outline: none;
   color: white;
   padding: 14px 16px;
@@ -298,9 +302,10 @@
   margin: 0;
 }
 
-.navbar a:hover,
+/* .navbar a:hover, */
 .dropdown:hover .dropbtn {
-  /* background-color: red; */
+  background-color: #f7c17c;
+  border-radius: 20;
 }
 
 .dropdown-content {
