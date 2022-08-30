@@ -6,7 +6,7 @@ import { Button } from './Button'
 import './HeroSection.css'
 import './Navbar.css'
 import { FaPlusCircle } from 'react-icons/fa'
-
+import firestore from '@react-native-firebase/firestore'
 // import { useNavigate } from 'react-router-dom'
 import { Link, Route, Routes } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
@@ -87,7 +87,7 @@ function HeroSection({}) {
         },
         {
           productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,99',
+          productOffPrice: '1,990',
           productOnPrice: '839',
           OffPrice: '560',
           video: '../images/vid.mp4',
@@ -492,15 +492,22 @@ function HeroSection({}) {
   //   e.preventDefault()
   //   history('/Cart',{
   // })
+  const [AllDocs, setAllDocs] = useState([])
   let history = useHistory()
-  const ClickHandle = () => {}
-  // }
-  // const navi = useNavigate()
-  // const navigate =
-  // const ClickHandle = () => {
-  //   navigate('/Cart')
-  // }
-  const dat = [{}]
+  const ClickHandle = () => {
+    firestore()
+      .collection('product')
+      .get()
+      .then((querySnapshot) => {
+        console.log('Total users: ', querySnapshot.size)
+
+        querySnapshot.forEach((documentSnapshot) => {
+          console.log('User ID: ', documentSnapshot.id, documentSnapshot.data())
+        })
+      })
+    // const usersCollection = firestore().collection('Users')
+    // const userDocument = firestore().collection('Users').doc('ABC')
+  }
   // const Product = [
   //   {
   //     id: 1,
@@ -556,12 +563,14 @@ function HeroSection({}) {
     // <div className="img-main">
     <div
       // onClick={() => history('/Cart')}
-      onClick={() => {
-        history.push('/Brand', {
-          TitleMain: item.title,
-          SubArray: item.subarry,
-        })
-      }}
+      // onClick={() => {
+      //   history.push('/Brand', {
+      //     TitleMain: item.title,
+      //     SubArray: item.subarry,
+      //   })
+
+      onClick={ClickHandle}
+      // }}
       style={{
         marginTop: '3%',
       }}
