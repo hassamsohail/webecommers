@@ -1,6 +1,6 @@
 // import React from 'react'
 import React, { useState, useEffect } from 'react'
-// import sofa from '../images/sofa.jpeg'
+// import sofa from '../HairRemovalcream/sofa.jpeg'
 // import '../App.css'
 import '../../App.css'
 import '../HeroSection.css'
@@ -16,39 +16,28 @@ import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { FaStarHalfAlt } from 'react-icons/fa'
 import { useLocation } from 'react-router-dom'
 import Footer from '../Footer'
-function Depilatory() {
-  const Depilatory = [
+function HairRemoval() {
+  const HairRemoval = [
     {
-      productName: 'EVELINE DEPILATERY 3 IN 1 ULTRA MILD SENS  ',
-      productOffPrice: '2,149',
-      productOnPrice: '1,289',
+      productName: 'VEET CREAM SILK & FRESH 100 GM',
+      productOffPrice: '630',
+      productOnPrice: '470',
       OffPrice: '860',
-      productimg: '../Depilatory/Depilatory1.jpeg',
+      productimg: '../HairRemovalcream/HairRemovalcream1.jpeg',
       Discription:
         "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-      video: '../Depilatory/vid.mp4',
+      video: '../HairRemovalcream/vid.mp4',
     },
     {
-      productName: 'DR. RASHEL VITAMIN C PRIVATES PART ',
+      productName: 'VEET CREAM SILK & FRESH 200 GM',
       productOffPrice: '1,99',
       productOnPrice: '839',
       OffPrice: '560',
-      video: '../Depilatory/vid.mp4',
+      video: '../HairRemovalcream/vid.mp4',
 
-      productimg: '../Depilatory/Depilatory2.jpeg',
+      productimg: '../HairRemovalcream/HairRemovalcream2.jpeg',
       Discription:
         'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-    },
-    {
-      productName: 'EVELINE DEPILATORY MOISTURISING ',
-      productOffPrice: '1,995',
-      productOnPrice: '1,197',
-      OffPrice: '798',
-      video: '../Depilatory/vid.mp4',
-
-      productimg: '../Depilatory/Depilatory3.jpeg',
-      Discription:
-        'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
     },
   ]
   let history = useHistory()
@@ -82,7 +71,7 @@ function Depilatory() {
 
   window.addEventListener('resize', showButton)
   // console.log(SubArray)
-  const ProductDetail = Depilatory.map((item) => (
+  const ProductDetail = HairRemoval.map((item) => (
     <div
       onClick={() => {
         history.push('/Cart', {
@@ -183,7 +172,7 @@ function Depilatory() {
           textAlign: 'center',
         }}
       >
-        Depilatory
+        HairRemovalcream
       </h2>
       <div
         style={
@@ -217,4 +206,4 @@ function Depilatory() {
     </div>
   )
 }
-export default Depilatory
+export default HairRemoval

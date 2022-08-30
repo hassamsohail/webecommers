@@ -665,21 +665,15 @@ function Navbar() {
           <div class="dropdown-content">
             <a
               onClick={() => {
-                history.push('/WaxStrips', {})
+                history.push('/HairRemoval', {})
               }}
               style={{
                 color: '#000',
               }}
             >
-              Wax Strips
+              Hair Removal cream
             </a>
-            <a
-              onClick={() => {
-                history.push('/VaginalCare', {})
-              }}
-            >
-              VaginalCare
-            </a>
+
             <a
               onClick={() => {
                 history.push('/Depilatory', {})

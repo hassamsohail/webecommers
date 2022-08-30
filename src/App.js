@@ -30,6 +30,7 @@ import LipStick from './components/pages/LipStick'
 import VaginalCare from './components/pages/VaginalCare'
 import WaxStrips from './components/pages/WaxStrips'
 import Nutrifactor from './components/pages/Nutrifactor'
+import HairRemoval from './components/pages/HairRemoval'
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
         <Route path="/VaginalCare" component={VaginalCare} />
 
         <Route path="/WaxStrips" component={WaxStrips} />
+        <Route path="/HairRemoval" component={HairRemoval} />
 
         {/* </Switch> */}
       </Routes>
