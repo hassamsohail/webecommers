@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import Footer from '../Footer'
 import { useHistory } from 'react-router-dom'
-
+import { db } from '../../firebase'
+import { setDoc, doc, addDoc} from 'firebase/firestore'
+import { uuidv4 } from '@firebase/util'
 export default function info() {
   const [Email, setEmail] = useState('')
   const [Country, setCountry] = useState('')
@@ -11,6 +13,32 @@ export default function info() {
   const [CityName, setCityName] = useState('')
   const [PhoneNumber, setPhoneNumber] = useState('')
   let history = useHistory()
+
+ const AddOrder=()=>{
+//  console.log(uuidv4.call());
+ 
+  var mydoc = doc(db, 'Order',uuidv4.call())
+  const d = {
+      Email: Email,
+      Country: Country,
+      FirstName:FirstName,
+      LastName:LastName,
+      Address:Address,
+      CityName:CityName,
+      PhoneNumber:PhoneNumber
+  }
+
+
+  setDoc(mydoc, d).then(() => {
+
+      alert('suuessfull order send ')
+  }).catch((e) => {
+      console.log(e);
+  })
+
+
+
+ }
 
   return (
     <div
@@ -221,6 +249,7 @@ export default function info() {
           </text>
         </div>
         <div
+            onClick  ={()=>AddOrder()}
           style={{
             height: 50,
             width: 120,
@@ -233,12 +262,14 @@ export default function info() {
             justifyContent: 'center',
             display: 'flex',
           }}
+
         >
           <text
             style={{
               fontWeight: 20,
               color: '#fff',
             }}
+            onClick={AddOrder}
           >
             Order Now
           </text>
