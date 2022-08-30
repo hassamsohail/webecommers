@@ -23,7 +23,7 @@ function Janssen() {
       // productOffPrice: '2,149',
       productOnPrice: '1,289',
       OffPrice: '860',
-      productimg: '../janssen/1.PNG',
+      productimg: '../janssen/janssen1.PNG',
       Discription:
         "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
       video: '../janssen/vid.mp4',
@@ -35,7 +35,7 @@ function Janssen() {
       OffPrice: '560',
       video: '../janssen/vid.mp4',
 
-      productimg: '../janssen/2.PNG',
+      productimg: '../janssen/janssen2.PNG',
       Discription:
         'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
     },
@@ -46,7 +46,7 @@ function Janssen() {
       OffPrice: '798',
       video: '../janssen/vid.mp4',
 
-      productimg: '../janssen/3.PNG',
+      productimg: '../janssen/janssen3.PNG',
       Discription:
         'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
     },
@@ -57,7 +57,7 @@ function Janssen() {
       OffPrice: '756',
       video: '../janssen/vid.mp4',
 
-      productimg: '../janssen/4.PNG',
+      productimg: '../janssen/janssen4.PNG',
       Discription:
         'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
     },
