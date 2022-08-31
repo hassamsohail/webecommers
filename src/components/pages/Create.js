@@ -9,6 +9,8 @@ import Footer from '../Footer'
 import { useHistory } from 'react-router-dom'
 
 function Create() {
+  const [value, setValue] = useState('')
+
   const Product = [
     {
       id: 1,
@@ -41,9 +43,12 @@ function Create() {
   const closeMobileMenu = () => setClick(false)
   const [Password, setPassword] = useState('')
   const [First, setFirst] = useState('')
+  const [ConfirmEmail, setConfirmEmail] = useState('')
   const [Last, setLast] = useState('')
   let history = useHistory()
-
+  const handleChange = (event) => {
+    setValue(event.target.value.replace(/\D/g, ''))
+  }
   const HandleSubmit = () => {
     setsubmitButtonDisabled(true)
     createUserWithEmailAndPassword(auth, Email, Password)
@@ -180,6 +185,9 @@ function Create() {
                 marginLeft: '5%',
                 // backgroundColor: 'pink',
               }}
+              // value={value}
+              // onChange={handleChange}
+
               placeholder={'Email'}
               onChange={(e) => setEmail(e.target.value)}
             />

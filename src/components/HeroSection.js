@@ -17,9 +17,121 @@ import Footer from './Footer'
 function HeroSection({}) {
   const AAry = [
     {
+      //Main big Image
       img: '../images/imgg1.png',
       // width:
       title: 'Maybelline New York',
+
+      //sub Array Of Product
+      subarry: [
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
+          productOffPrice: '1,99',
+          productOnPrice: '839',
+          OffPrice: '560',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/2.PNG',
+          Discription:
+            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
+        },
+        {
+          productName:
+            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
+          productOffPrice: '1,995',
+          productOnPrice: '1,197',
+          OffPrice: '798',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/3.PNG',
+          Discription:
+            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
+        },
+        {
+          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productOffPrice: '1,890',
+          productOnPrice: '1,134',
+          OffPrice: '756',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/4.PNG',
+          Discription:
+            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
+        },
+      ],
+    },
+    {
+      //Main big Image
+      img: '../images/imgg11.png',
+      // width:
+      title: 'Lipstick',
+
+      //sub Array Of Product
+      subarry: [
+        {
+          productName: 'Maybelline NY Colossal Curl ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../LipStick/LipStick1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
+          productOffPrice: '1,99',
+          productOnPrice: '839',
+          OffPrice: '560',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/2.PNG',
+          Discription:
+            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
+        },
+        {
+          productName:
+            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
+          productOffPrice: '1,995',
+          productOnPrice: '1,197',
+          OffPrice: '798',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/3.PNG',
+          Discription:
+            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
+        },
+        {
+          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productOffPrice: '1,890',
+          productOnPrice: '1,134',
+          OffPrice: '756',
+          video: '../images/vid.mp4',
+
+          productimg: '../images/4.PNG',
+          Discription:
+            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
+        },
+      ],
+    },
+    {
+      //Main big Image
+      img: '../images/imgg5.png',
+      // width:
+      title: 'Maybelline ',
+
+      //sub Array Of Product
       subarry: [
         {
           productName:
@@ -499,7 +611,6 @@ function HeroSection({}) {
     //   .get()
     //   .then((querySnapshot) => {
     //     console.log('Total users: ', querySnapshot.size)
-
     //     querySnapshot.forEach((documentSnapshot) => {
     //       console.log('User ID: ', documentSnapshot.id, documentSnapshot.data())
     //     })
@@ -562,14 +673,14 @@ function HeroSection({}) {
     // <div className="img-main">
     <div
       // onClick={() => history('/Cart')}
-      // onClick={() => {
-      //   history.push('/Brand', {
-      //     TitleMain: item.title,
-      //     SubArray: item.subarry,
-      //   })
+      onClick={() => {
+        history.push('/Brand', {
+          TitleMain: item.title,
+          SubArray: item.subarry,
+        })
 
-      onClick={ClickHandle}
-      // }}
+        // onClick={ClickHandle}
+      }}
       style={{
         marginTop: '3%',
       }}
@@ -790,142 +901,6 @@ function HeroSection({}) {
   // ))
   return (
     <div className="hero-container">
-      {/* <ul
-        style={{
-          marginTop: '1%',
-          // backgroundColor: '#f2f2f2',
-          // padding: '10%',
-        }}
-        className={click ? 'nav-menu' : 'nav-menu'}
-      >
-        <li
-          style={
-            {
-              // backgroundColor: 'red',
-            }
-          }
-          className="nav-item"
-        >
-          <Link
-            style={{
-              color: 'black',
-              // fontSize: '24px',
-              // width: '100%',
-              // marginLeft: '2%',
-              // textSizeAdjust: '100%',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Categories
-          </Link>
-        </li>
-        <li
-          style={
-            {
-              // backgroundColor: 'red',
-            }
-          }
-          className="nav-item"
-        >
-          <Link
-            style={{
-              color: 'black',
-              // fontSize: '24px',
-              // width: '100%',
-              // marginLeft: '2%',
-              // textSizeAdjust: '100%',
-            }}
-            to="/Brand"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Brands
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Make Up
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/Billing"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Skin Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Health Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Personal Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Baby Care
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            style={{
-              color: 'black',
-            }}
-            to="/"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Hair Care
-          </Link>
-        </li>
-      </ul> */}
-      {/* <div
-        style={{
-          // borderBottomWidth: '1px',
-          height: '1.5px',
-          width: '100%',
-          marginTop: '1%',
-          backgroundColor: '#DADADA',
-        }}
-      ></div> */}
       <div className="img-main">
         {AllData}
 

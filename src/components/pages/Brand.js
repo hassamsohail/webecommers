@@ -16,6 +16,7 @@ import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { FaStarHalfAlt } from 'react-icons/fa'
 import { useLocation } from 'react-router-dom'
 import Footer from '../Footer'
+import { FaArrowAltCircleLeft } from 'react-icons/fa'
 function Brand() {
   let history = useHistory()
 
@@ -143,6 +144,15 @@ function Brand() {
   ))
   return (
     <div className="hero-container">
+      {/* <FaArrowAltCircleLeft
+        onClick={() => {
+          history.push('/', {})
+        }}
+        style={{
+          color: 'pink',
+        }}
+        size={40}
+      /> */}
       <h2
         style={{
           fontSize: 40,

@@ -19,12 +19,16 @@ function Login() {
   const [click, setClick] = useState(false)
   const [button, setButton] = useState(true)
   const [Email, setEmail] = useState('')
+  const [ConfirmEmail, setConfirmEmail] = useState('')
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
   const [Password, setPassword] = useState('')
   const [submitButtonDisabled, setsubmitButtonDisabled] = useState(false)
   // const navigate = useNavigate()
-
+  const [value, setValue] = useState('')
+  const handleChange = (event) => {
+    setValue(event.target.value.replace(/\D/g, ''))
+  }
   const sign = () => {
     signin()
     // navigate('/Home')
@@ -55,7 +59,9 @@ function Login() {
   }, [])
 
   window.addEventListener('resize', showButton)
-
+  console.log(value)
+  console.log(typeof value)
+  console.log(Number(value))
   return (
     <div className="hero-container">
       <div
@@ -110,11 +116,38 @@ function Login() {
                 marginLeft: '4%',
                 // backgroundColor: 'pink',
               }}
+              // onChange={handleChange}
               placeholder={'Email'}
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
         </form>
+
+        {/* <form
+          style={{
+            paddingLeft: 30,
+          }}
+        >
+          <label>
+            Enter your Confrim Email:
+            <input
+              type="text"
+              value={value}
+              // maxLength={9}
+              style={{
+                width: '39%',
+                paddingLeft: '1%',
+                height: 40,
+                // marginLeft: '2%',
+                // backgroundColor: 'pink',
+              }}
+              onChange={handleChange}
+              placeholder={'Confirm Email'}
+              // onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+        </form> */}
+
         <form
           style={{
             padding: 30,
@@ -123,6 +156,7 @@ function Login() {
           <label>
             Enter your Password:
             <input
+              // maxLength={9}
               type="password"
               value={Password}
               style={{
@@ -134,7 +168,9 @@ function Login() {
                 // backgroundColor: 'pink',
               }}
               placeholder={'Passowrd'}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }}
             />
           </label>
         </form>

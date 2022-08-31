@@ -490,6 +490,13 @@ function Navbar() {
             >
               Nutrifactor
             </a>
+            <a
+              onClick={() => {
+                history.push('/Haseeb', {})
+              }}
+            >
+              Hasseb
+            </a>
           </div>
         </div>
 
@@ -516,6 +523,17 @@ function Navbar() {
             >
               LipStick
             </a>
+            <a
+              onClick={() => {
+                history.push('/LipStick2', {})
+              }}
+              style={{
+                color: '#000',
+              }}
+            >
+              Lipstick2
+            </a>
+
             <a
               onClick={() => {
                 history.push('/Blush', {})
@@ -641,6 +659,7 @@ function Navbar() {
             >
               Energy Booster
             </a>
+
             <a
               onClick={() => {
                 history.push('/WomenEnergyBooster', {})

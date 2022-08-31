@@ -31,6 +31,8 @@ import VaginalCare from './components/pages/VaginalCare'
 import WaxStrips from './components/pages/WaxStrips'
 import Nutrifactor from './components/pages/Nutrifactor'
 import HairRemoval from './components/pages/HairRemoval'
+import Haseeb from './components/Haseeb'
+import Lipstick2 from './components/pages/Lipstick2'
 
 function App() {
   return (
@@ -64,9 +66,11 @@ function App() {
         <Route path="/Janssen" component={Janssen} />
         <Route path="/LipStick" component={LipStick} />
         <Route path="/VaginalCare" component={VaginalCare} />
+        <Route path="/Lipstick2" component={Lipstick2} />
 
         <Route path="/WaxStrips" component={WaxStrips} />
         <Route path="/HairRemoval" component={HairRemoval} />
+        <Route path="/Haseeb" component={Haseeb} />
 
         {/* </Switch> */}
       </Routes>

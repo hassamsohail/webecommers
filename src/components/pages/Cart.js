@@ -771,7 +771,7 @@ function Cart() {
                     color: 'black',
                   }}
                 >
-                  Rs. {ProductPrice*count}
+                  Rs. {ProductPrice * count}
                 </h2>{' '}
               </div>
             </div>
