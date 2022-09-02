@@ -12,9 +12,10 @@ import { AiFillPlusSquare } from 'react-icons/ai'
 
 import { useHistory } from 'react-router-dom'
 
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+import ImagePicker from 'react-image-picker'
 import { FaStarHalfAlt } from 'react-icons/fa'
 import { useLocation } from 'react-router-dom'
+import Logo from './Logo.png'
 import Navbar from '../Navbar'
 function Essence() {
   const [state, setState] = useState({
@@ -84,6 +85,8 @@ function Essence() {
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
   const Render = (item) => {
+    const IMagePicker = () => {}
+
     return (
       <div
         // onClick={() => {
@@ -282,6 +285,14 @@ function Essence() {
           >
             ADD PRODUCT
           </h1>
+          <img
+            style={{
+              width: '30%',
+              marginLeft: '20%',
+              height: '40%',
+            }}
+            src={Logo}
+          />
           <form
             style={{
               paddingLeft: 99,
