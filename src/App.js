@@ -4,7 +4,6 @@ import './App.css'
 import Home from './components/pages/Home'
 import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom'
 
-import Login from './components/pages/Login'
 import Brand from './components/pages/Brand'
 import Cart from './components/pages/Cart'
 import Addcart from './components/pages/Addcart'
@@ -33,15 +32,16 @@ import Nutrifactor from './components/pages/Nutrifactor'
 import HairRemoval from './components/pages/HairRemoval'
 import Haseeb from './components/Haseeb'
 import Lipstick2 from './components/pages/Lipstick2'
-
+import Login from './components/pages/Login'
+import UserPanel from './components/UserPanel'
+import Opps from './components/404'
 function App() {
   return (
     <>
       <Routes>
-        <Navbar />
+        <Route path="/Login" exact component={Login} />
         {/* <Switch> */}
-        <Route path="/" exact component={Home} />
-        <Route path="/Login" component={Login} />
+        <Route path="/Home" component={Home} />
         <Route path="/Brand" component={Brand} />
         <Route path="/Cart" component={Cart} />
 
@@ -71,6 +71,8 @@ function App() {
         <Route path="/WaxStrips" component={WaxStrips} />
         <Route path="/HairRemoval" component={HairRemoval} />
         <Route path="/Haseeb" component={Haseeb} />
+        <Route path="/UserPanel" component={UserPanel} />
+        <Route path="/error" component={Opps} />
 
         {/* </Switch> */}
       </Routes>

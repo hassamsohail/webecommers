@@ -5,12 +5,19 @@ import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import '../Navbar.css'
-import { useHistory } from 'react-router-dom'
+import logo from '../pages/Logo.png'
 
+// import Logo from '../../../public/images/Logo.png'
+import { useHistory } from 'react-router-dom'
+// import Logo from '../images/Logo.png'
 import '../HeroSection.css'
 // import './Navbar.css'
+// import { auth } from '../firebase'
+// auth
+// import {auth} from
+// import Footer from './Footer'
 import { auth } from '../../firebase'
-import Footer from '../Footer'
+// import { Button } from 'bootstrap'
 // import { useNavigate } from '@reach/router'
 
 function Login() {
@@ -36,13 +43,19 @@ function Login() {
   const signin = () => {
     signInWithEmailAndPassword(auth, Email, Password)
       .then((res) => {
-        const user = res.user
+        const user = res.user.displayName
         // onClick={() => {
-        history.push('/')
+
+        history.push('/Home', {
+          login: true,
+        })
+        alert('Sucessfully Login ', user)
         // }}
-        console.log(user)
+
+        console.log(res)
       })
       .catch((error) => {
+        alert(error)
         console.log('Error', error.message)
       })
   }
@@ -66,18 +79,28 @@ function Login() {
     <div className="hero-container">
       <div
         style={{
-          // borderBottomWidth: '1px',
-          height: '1.5px',
-          width: '100%',
-          marginTop: '1%',
-          backgroundColor: '#DADADA',
+          justifyContent: 'center',
+          alignItems: 'center',
+          display: 'flex',
+          height: 400,
         }}
-      ></div>
+      >
+        <img
+          style={{
+            marginTop: 70,
+            width: 400,
+            height: 400,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          src={logo}
+        />
+      </div>
       <div
-        onClick={sign}
         className="nav-Login"
         style={{
-          paddingLeft: '30%',
+          // marginTop: 100,
+          paddingLeft: '26%',
           paddingTop: '3%',
           // flex: 1,
           height: '70%',
@@ -87,11 +110,26 @@ function Login() {
           justifyContent: 'center',
         }}
       >
+        {/* <Link to="/">
+          <img
+            // className="cards__item__img"
+            // alt='Travel Image'
+            style={{
+              width: '80px',
+              height: '80px',
+            }}
+            // src={Logo}
+
+            // src={'../'}
+          />
+        </Link> */}
         <text
           style={{
             // fontSize:
+
             fontSize: 30,
-            marginLeft: '2.5%',
+            marginLeft: '30%',
+            // marginBottom: 200,
             fontWeight: 'bold',
             // fontSize:""
           }}
@@ -102,6 +140,7 @@ function Login() {
         <form
           style={{
             paddingLeft: 30,
+            marginTop: '5%',
           }}
         >
           <label>
@@ -176,9 +215,10 @@ function Login() {
         </form>
 
         <div
+          onClick={sign}
           style={{
             width: '20%',
-            marginLeft: '20%',
+            marginLeft: '24%',
             height: 40,
             borderRadius: '5px',
             justifyContent: 'center',
@@ -187,51 +227,17 @@ function Login() {
             backgroundColor: '#D80000',
           }}
         >
-          <text
+          <button
             style={{
+              borderWidth: 0,
+              backgroundColor: '#D80000',
               color: '#fff',
             }}
           >
             Signin
-          </text>
-        </div>
-        <div
-          style={{
-            marginTop: '1%',
-            display: 'flex',
-            flexDirection: 'row',
-            marginLeft: '24%',
-          }}
-        >
-          {/* <li> */}
-          <span>
-            <Link
-              style={{
-                width: '30%',
-                color: 'black',
-              }}
-              to="/Create"
-
-              // className="nav-link"
-              // onClick={closeMobileMenu}
-            >
-              <text
-                style={
-                  {
-                    // marginLeft: '2%',
-                    // color: '#fff',
-                  }
-                }
-              >
-                Create account
-              </text>
-            </Link>
-          </span>
-
-          {/* </li> */}
+          </button>
         </div>
       </div>
-      <Footer />
     </div>
   )
 }

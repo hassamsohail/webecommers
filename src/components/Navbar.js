@@ -433,7 +433,7 @@ function Navbar() {
         className="navbar"
       >
         <div className="navbar-container">
-          <Link to="/">
+          <Link to="/Home">
             <img
               // className="cards__item__img"
               // alt='Travel Image'
@@ -523,17 +523,7 @@ function Navbar() {
             >
               LipStick
             </a>
-            <a
-              onClick={() => {
-                history.push('/LipStick2', {})
-              }}
-              style={{
-                color: '#000',
-              }}
-            >
-              Lipstick2
-            </a>
-
+            x
             <a
               onClick={() => {
                 history.push('/Blush', {})
@@ -703,18 +693,7 @@ function Navbar() {
           </div>
         </div>
 
-        <Link to="/">
-          <AiOutlineSearch
-            style={{
-              color: '#fff',
-              // color: '#F7C17C',
-              marginLeft: '50%',
-            }}
-            size={20}
-          />
-        </Link>
-
-        <Link to="/Login">
+        <Link to="/UserPanel">
           <FaRegUser
             style={{
               color: '#fff',
@@ -725,20 +704,27 @@ function Navbar() {
             size={20}
           />
         </Link>
+        {/* <div
+          
+        >
 
-        <Link>
-          <FaDollyFlatbed
-            // to="/Login"
-            onClick={() => setState({ isPaneOpenLeft: true })}
-            style={{
-              color: '#fff',
-              // marginLeft: 10,
-              marginLeft: '30%',
-            }}
-            size={20}
-          />
-        </Link>
-        {/* </li> */}
+
+        </div> */}
+        <button
+          style={{
+            width: 90,
+            height: 40,
+            backgroundColor: '#f7c17c',
+            borderRadius: 6,
+            display: 'flex',
+            marginLeft: '4%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: '#fff',
+          }}
+        >
+          Sigin Out
+        </button>
       </nav>
       <div>
         <div>

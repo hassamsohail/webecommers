@@ -5,16 +5,23 @@ import '../App.css'
 import { Button } from './Button'
 import './HeroSection.css'
 import './Navbar.css'
-import { FaPlusCircle } from 'react-icons/fa'
-// import firestore from '@react-native-firebase/firestore'
-// import { useNavigate } from 'react-router-dom'
+// import { FlatList } from 'react-native'
+import { AiFillPlusSquare } from 'react-icons/ai'
+import { AiOutlineClose } from 'react-icons/ai'
+import SlidingPane from 'react-sliding-pane'
+
 import { Link, Route, Routes } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 import { FaStarHalfAlt } from 'react-icons/fa'
 import { useHistory } from 'react-router-dom'
 import Footer from './Footer'
+import Navbar from './Navbar'
 
 function HeroSection({}) {
+  const [state, setState] = useState({
+    isPaneOpen: false,
+    isPaneOpenLeft: false,
+  })
   const AAry = [
     {
       //Main big Image
@@ -24,6 +31,39 @@ function HeroSection({}) {
 
       //sub Array Of Product
       subarry: [
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
+        {
+          productName:
+            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
+          productOffPrice: '2,149',
+          productOnPrice: '1,289',
+          OffPrice: '860',
+          productimg: '../images/1.PNG',
+          Discription:
+            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
+          video: '../images/vid.mp4',
+        },
         {
           productName:
             'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
@@ -59,7 +99,8 @@ function HeroSection({}) {
             'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
         },
         {
-          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
+          productName:
+            'Maybelline NY BB Ultracoverskjid  js dhvcjsdyus SPF 50 - 30ml',
           productOffPrice: '1,890',
           productOnPrice: '1,134',
           OffPrice: '756',
@@ -605,93 +646,40 @@ function HeroSection({}) {
   // })
   const [AllDocs, setAllDocs] = useState([])
   let history = useHistory()
-  const ClickHandle = () => {
-    // firestore()
-    //   .collection('product')
-    //   .get()
-    //   .then((querySnapshot) => {
-    //     console.log('Total users: ', querySnapshot.size)
-    //     querySnapshot.forEach((documentSnapshot) => {
-    //       console.log('User ID: ', documentSnapshot.id, documentSnapshot.data())
-    //     })
-    //   })
-    // const usersCollection = firestore().collection('Users')
-    // const userDocument = firestore().collection('Users').doc('ABC')
-  }
-  // const Product = [
-  //   {
-  //     id: 1,
-  //     vedio: '/images/vid.mp4',
+  const [ProductName, setProductName] = useState('')
+  const [ProductDiscount, setProductDiscount] = useState('')
+  const [ProductPrice, setProductPrice] = useState('')
+  const [ProductOff, setProductOff] = useState('')
+  const [Discription, setDiscription] = useState('')
 
-  //     src: '../images/Item1.png',
-  //     // Image: '../images/sofa.png',
-  //     // photo: sofa,
-  //     ProductName: ' Mascara',
-  //     ProductPrice: 'Rs25000',
-  //     ProductDiscount: 'Rs5000',
-  //     // ProductRating:""
-  //   },
-  //   {
-  //     id: 1,
-
-  //     vedio: '/images/vid.mp4',
-  //     src: '../images/sofa.png',
-  //     // Image: '../images/sofa.png',
-  //     // photo: sofa,
-  //     ProductName: "Woman's Makeup bag",
-  //     ProductPrice: 'Rs25000',
-  //     ProductDiscount: 'Rs5000',
-  //     // ProductRating:""
-  //   },
-  //   {
-  //     id: 1,
-
-  //     src: '../images/sofa.png',
-  //     // Image: '../images/sofa.png',
-  //     // photo: sofa,
-  //     ProductName: "Woman's Makeup bag",
-  //     ProductPrice: 'Rs25000',
-  //     ProductDiscount: 'Rs5000',
-  //     vedio: '/images/vid.mp4',
-
-  //     // ProductRating:""
-  //   },
-  //   {
-  //     id: 1,
-
-  //     src: '../images/sofa.png',
-  //     // Image: '../images/sofa.png',
-  //     // photo: sofa,
-  //     ProductName: "Woman's Makeup bag",
-  //     ProductPrice: 'Rs25000',
-  //     ProductDiscount: 'Rs5000',
-  //     vedio: '/images/vid.mp4',
-  //     // ProductRating:""
-  //   },
-  // ]
   const AllData = AAry.map((item) => (
     // <div className="img-main">
-    <div
-      // onClick={() => history('/Cart')}
-      onClick={() => {
-        history.push('/Brand', {
-          TitleMain: item.title,
-          SubArray: item.subarry,
-        })
+    <div>
+      <AiOutlineClose size={40} />
+      <div
+        // onClick={() => history('/Cart')}
+        onClick={() => {
+          history.push('/Brand', {
+            TitleMain: item.title,
+            SubArray: item.subarry,
+          })
 
-        // onClick={ClickHandle}
-      }}
-      style={{
-        marginTop: '3%',
-      }}
-    >
-      <img
-        style={{
-          width: '100%',
-          height: '10%',
+          // onClick={ClickHandle}
         }}
-        src={item.img}
-      />
+        style={
+          {
+            // marginTop: '3%',
+          }
+        }
+      >
+        <img
+          style={{
+            width: '100%',
+            height: '10%',
+          }}
+          src={item.img}
+        />
+      </div>
     </div>
     // </div>
   ))
@@ -715,300 +703,233 @@ function HeroSection({}) {
 
   window.addEventListener('resize', showButton)
 
-  // const ProductDetail = Product.map((product) => (
-  //   // <Link
-
-  //   <div
-  //     onClick={() => {
-  //       history.push('/Cart', {
-  //         ProductName: product.ProductName,
-  //         ProductPrice: product.ProductPrice,
-  //         ProductDiscount: product.ProductDiscount,
-  //         image: product.src,
-  //         vedio: product.vedio,
-  //       })
-  //     }}
-  //     style={{
-  //       // backgroundColor: 'pink',
-  //       marginRight: '1%',
-  //       width: '97%',
-  //     }}
-  //   >
-  //     <div
-  //       // onClick={nextPage}
-  //       style={{
-  //         width: '100%',
-  //         height: 400,
-  //         justifyContent: 'center',
-  //         // display: 'flex',
-  //         // backgroundColor: 'pink',
-  //       }}
-  //     >
-  //       <text
-  //         style={{
-  //           color: '#fff',
-  //           width: 50,
-  //           paddingLeft: 3,
-  //           position: 'absolute',
-  //           // left: 0,
-  //           backgroundColor: '#EB5345',
-  //         }}
-  //       >
-  //         Sales
-  //       </text>
-  //       <text
-  //         style={{
-  //           color: '#fff',
-  //           width: 50,
-  //           paddingLeft: 3,
-  //           position: 'absolute',
-  //           // left: 0,
-  //           marginTop: '2%',
-  //           backgroundColor: '#08C0E4',
-  //         }}
-  //       >
-  //         New
-  //       </text>
-  //       <img
-  //         // className="cards__item__img"
-  //         // alt='Travel Image'
-  //         style={{
-  //           width: '50%',
-  //           marginLeft: '23%',
-  //           height: '50%',
-  //         }}
-  //         src={product.src}
-  //       />
-
-  //       <div
-  //         style={{
-  //           height: '50%',
-  //           width: '100%',
-  //           backgroundColor: '#FDF1E2',
-  //         }}
-  //       >
-  //         <text
-  //           style={{
-  //             justifyContent: 'center',
-  //             display: 'flex',
-  //             // textAlign: 'center',
-  //             fontSize: 24,
-  //             marginTop: '2%',
-
-  //             color: 'black',
-  //           }}
-  //         >
-  //           Maybelline NY Mascara
-  //         </text>
-  //         <div
-  //           style={{
-  //             flexDirection: 'row',
-  //             display: 'flex',
-  //             paddingLeft: '20%',
-  //             marginTop: '10%',
-  //           }}
-  //         >
-  //           <FaStar
-  //             style={{
-  //               // backgroundColor: '#754133',
-  //               color: '#754133',
-  //               marginLeft: '1%',
-  //             }}
-  //             size={25}
-  //           />
-  //           <FaStar
-  //             style={{
-  //               marginLeft: '2%',
-
-  //               // backgroundColor: '#754133',
-  //               color: '#754133',
-  //             }}
-  //             size={25}
-  //           />{' '}
-  //           <FaStar
-  //             style={{
-  //               marginLeft: '2%',
-
-  //               // backgroundColor: '#754133',
-  //               color: '#754133',
-  //             }}
-  //             size={25}
-  //           />{' '}
-  //           <FaStar
-  //             style={{
-  //               marginLeft: '2%',
-
-  //               // backgroundColor: '#754133',
-  //               color: '#754133',
-  //             }}
-  //             size={25}
-  //           />{' '}
-  //           <FaStarHalfAlt
-  //             style={{
-  //               marginLeft: '2%',
-  //               // backgroundColor: '#754133',
-  //               color: '#754133',
-  //             }}
-  //             size={25}
-  //           />
-  //           <text
-  //             style={{
-  //               justifyContent: 'center',
-  //               display: 'flex',
-  //               // textAlign: 'center',
-  //               fontSize: 18,
-  //               marginLeft: '2%',
-  //               color: 'black',
-  //               // textDecorationLine: 'line-through',
-  //             }}
-  //           >
-  //             6 review
-  //           </text>
-  //         </div>
-  //         <text
-  //           style={{
-  //             justifyContent: 'center',
-  //             display: 'flex',
-  //             // textAlign: 'center',
-  //             fontSize: 18,
-  //             color: 'red',
-  //             marginTop: '4%',
-
-  //             textDecorationLine: 'line-through',
-  //           }}
-  //         >
-  //           {product.ProductDiscount}
-  //         </text>
-
-  //         <text
-  //           style={{
-  //             justifyContent: 'center',
-  //             display: 'flex',
-  //             // textAlign: 'center',
-  //             fontSize: 28,
-  //             color: 'black',
-  //             marginTop: '4%',
-
-  //             fontWeight: 'bold',
-  //             // textDecorationLine: 'line-through',
-  //           }}
-  //         >
-  //           {product.ProductPrice}
-  //         </text>
-  //       </div>
-  //     </div>
-  //   </div>
-  // ))
   return (
-    <div className="hero-container">
-      <div className="img-main">
-        {AllData}
-
+    <div>
+      <Navbar />
+      <div className="hero-container">
         <div
           style={{
-            flexDirection: 'row',
+            marginLeft: '74%',
+            width: '20%',
+            height: '6%',
             display: 'flex',
-            // width: '100%',
+            borderRadius: 10,
+            backgroundColor: 'lightgrey',
+          }}
+        ></div>
+        <div className="img-main">{AllData}</div>
+        <div
+          onClick={() => setState({ isPaneOpenLeft: true })}
+          style={{
+            paddingLeft: '10%',
+            paddingRight: '10%',
+            paddingBottom: '3%',
           }}
         >
           <div
-            // onClick={() => navi('/Cart')}
+            className="border-Width"
             style={{
+              // justifySelf: 'center',
+              marginBottom: '5%',
               marginTop: '3%',
-              // height: '20%',
-              // width: '10%',
+              // paddingBottom: '5%',
+              backgroundColor: '#fff',
+              boxShadow: '4px 7px 20px #f7c17c',
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: '20%',
             }}
           >
-            <img
+            <AiFillPlusSquare
               style={{
-                width: '97%',
-                height: '100%',
+                color: '#f7c17c',
+                // width: 200,
+                // height: 100,
               }}
-              src={'../images/immg1.png'}
-            />
-          </div>
-
-          <div
-            // onClick={() => navi('/Cart')}
-            style={{
-              marginTop: '3%',
-              // height: '20%',
-              // width: '10%',
-            }}
-          >
-            <img
-              style={{
-                width: '97%',
-                height: '100%',
-              }}
-              src={'../images/immg2.png'}
-            />
-          </div>
-          <div
-            // onClick={() => navi('/Cart')}
-            style={{
-              marginTop: '3%',
-              // height: '20%',
-              // width: '10%',
-            }}
-          >
-            <img
-              style={{
-                width: '97%',
-                height: '100%',
-              }}
-              src={'../images/immg3.png'}
-            />
-          </div>
-          <div
-            // onClick={() => navi('/Cart')}
-            style={{
-              marginTop: '3%',
-              // height: '20%',
-              // width: '10%',
-            }}
-          >
-            <img
-              style={{
-                width: '97%',
-                height: '100%',
-              }}
-              src={'../images/immg4.png'}
+              size={150}
             />
           </div>
         </div>
       </div>
+      <SlidingPane
+        // closeIcon={<div>Some div containing custom close icon.</div>}
+        isOpen={state.isPaneOpenLeft}
+        // title="Hey, it is optional pane title.  I can be React component too."
+        from="top"
+        width="100%"
+        onRequestClose={() => setState({ isPaneOpenLeft: false })}
+      >
+        <div
+          style={{
+            // backgroundColor: 'pink',
 
-      <div
-        // onClick={() => navi('/Cart')}
-        style={{
-          marginTop: '3%',
-        }}
-      >
-        <img
-          style={{
             width: '100%',
-            height: '10%',
+            height: '100%',
           }}
-          src={'../images/imgg10.png'}
-        />
-      </div>
-      <div
-        className="img-main"
-        // onClick={() => navi('/Cart')}
-        style={{
-          marginTop: '3%',
-        }}
-      >
-        <img
-          style={{
-            width: '100%',
-            height: '10%',
-          }}
-          src={'../images/imgg11.png'}
-        />
-      </div>
-      <Footer />
+        >
+          <h1
+            style={{
+              fontSize: 40,
+              fontWeight: 'bold',
+            }}
+          >
+            ADD PRODUCT
+          </h1>
+          <form
+            style={{
+              paddingLeft: 99,
+            }}
+          >
+            <label>
+              {/* Enter your Email: */}
+              Enter the Product Name
+              <input
+                type="text"
+                value={ProductName}
+                style={{
+                  width: '39%',
+                  paddingLeft: '1%',
+                  height: 40,
+                  marginLeft: '4%',
+                  // backgroundColor: 'pink',
+                }}
+                placeholder={'Enter the Product Name'}
+                onChange={(e) => setProductName(e.target.value)}
+              />
+            </label>
+          </form>
+
+          <form
+            style={{
+              paddingLeft: 103,
+              marginTop: '1%',
+            }}
+          >
+            <label>
+              {/* Enter Country Name */}
+              Enter Product Discount
+              <input
+                type="text"
+                value={ProductDiscount}
+                style={{
+                  width: '39%',
+                  paddingLeft: '1%',
+                  height: 40,
+                  marginLeft: '4%',
+                  // backgroundColor: 'pink',
+                }}
+                placeholder={'Enter Product Discount'}
+                onChange={(e) => setProductDiscount(e.target.value)}
+              />
+            </label>
+          </form>
+          <form
+            style={{
+              paddingLeft: 130,
+              marginTop: '1%',
+            }}
+          >
+            <label>
+              {/* Enter First Name */}
+              Enter Product Price
+              <input
+                type="text"
+                value={ProductPrice}
+                style={{
+                  width: '40%',
+                  paddingLeft: '1%',
+                  height: 40,
+                  marginLeft: '4%',
+                  // backgroundColor: 'pink',
+                }}
+                placeholder={' Enter Product Price'}
+                onChange={(e) => setProductPrice(e.target.value)}
+              />
+            </label>
+          </form>
+          <form
+            style={{
+              paddingLeft: 148,
+              marginTop: '1%',
+            }}
+          >
+            <label>
+              {/* Enter Last Name */}
+              Enter Product Off
+              <input
+                type="text"
+                value={ProductOff}
+                style={{
+                  width: '40%',
+                  paddingLeft: '1%',
+                  height: 40,
+                  marginLeft: '4%',
+                  // backgroundColor: 'pink',
+                }}
+                placeholder={' Enter Product Off'}
+                onChange={(e) => setProductOff(e.target.value)}
+              />
+            </label>
+          </form>
+          <form
+            style={{
+              paddingLeft: 124,
+              marginTop: '1%',
+            }}
+          >
+            <label>
+              {/* Enter Last Name */}
+              Enter The Discription
+              <input
+                type="text"
+                value={Discription}
+                style={{
+                  width: '39%',
+                  paddingLeft: '1%',
+                  height: 40,
+                  marginLeft: '4%',
+                  // backgroundColor: 'pink',
+                }}
+                placeholder={' Enter The Discription'}
+                onChange={(e) => setDiscription(e.target.value)}
+              />
+            </label>
+          </form>
+          <div
+            style={{
+              flexDirection: 'row',
+              display: 'flex',
+            }}
+          >
+            <div
+              onClick={() => setState({ isPaneOpenLeft: false })}
+              style={{
+                height: 50,
+                width: 120,
+                marginTop: '4%',
+                marginLeft: '9%',
+                borderRadius: 16,
+                backgroundColor: '#f7c17c',
+                alignItems: 'center',
+                marginRight: '10%',
+                justifyContent: 'center',
+                display: 'flex',
+              }}
+            >
+              <text
+                style={{
+                  fontWeight: 20,
+                  color: '#fff',
+                }}
+              >
+                Add New
+              </text>
+            </div>
+          </div>
+        </div>
+      </SlidingPane>
     </div>
   )
 }
