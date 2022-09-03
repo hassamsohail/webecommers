@@ -707,16 +707,6 @@ function HeroSection({}) {
     <div>
       <Navbar />
       <div className="hero-container">
-        <div
-          style={{
-            marginLeft: '74%',
-            width: '20%',
-            height: '6%',
-            display: 'flex',
-            borderRadius: 10,
-            backgroundColor: 'lightgrey',
-          }}
-        ></div>
         <div className="img-main">{AllData}</div>
         <div
           onClick={() => setState({ isPaneOpenLeft: true })}

@@ -433,7 +433,7 @@ function Navbar() {
         className="navbar"
       >
         <div className="navbar-container">
-          <Link to="/Home">
+          <Link to="/">
             <img
               // className="cards__item__img"
               // alt='Travel Image'
@@ -483,20 +483,6 @@ function Navbar() {
             >
               Janssen
             </a>
-            <a
-              onClick={() => {
-                history.push('/Nutrifactor', {})
-              }}
-            >
-              Nutrifactor
-            </a>
-            <a
-              onClick={() => {
-                history.push('/Haseeb', {})
-              }}
-            >
-              Hasseb
-            </a>
           </div>
         </div>
 
@@ -523,20 +509,13 @@ function Navbar() {
             >
               LipStick
             </a>
-            x
+
             <a
               onClick={() => {
                 history.push('/Blush', {})
               }}
             >
               Blush
-            </a>
-            <a
-              onClick={() => {
-                history.push('/Eyeliner', {})
-              }}
-            >
-              Eyeliner
             </a>
           </div>
         </div>
@@ -571,13 +550,6 @@ function Navbar() {
             >
               FaceMask
             </a>
-            <a
-              onClick={() => {
-                history.push('/DarkSpots', {})
-              }}
-            >
-              DarkSpots
-            </a>
           </div>
         </div>
         <div class="dropdown">
@@ -610,13 +582,6 @@ function Navbar() {
             >
               Hairfall
             </a>
-            <a
-              onClick={() => {
-                history.push('/Dandruff', {})
-              }}
-            >
-              Dandruff
-            </a>
           </div>
         </div>
         <div class="dropdown">
@@ -634,28 +599,10 @@ function Navbar() {
           <div class="dropdown-content">
             <a
               onClick={() => {
-                history.push('/ManEnergyBooster', {})
-              }}
-              style={{
-                color: '#000',
-              }}
-            >
-              Man Energy Booster
-            </a>
-            <a
-              onClick={() => {
                 history.push('/EnergyBooster', {})
               }}
             >
               Energy Booster
-            </a>
-
-            <a
-              onClick={() => {
-                history.push('/WomenEnergyBooster', {})
-              }}
-            >
-              Women Energy Booster
             </a>
           </div>
         </div>
@@ -672,17 +619,6 @@ function Navbar() {
           </button>
 
           <div class="dropdown-content">
-            <a
-              onClick={() => {
-                history.push('/HairRemoval', {})
-              }}
-              style={{
-                color: '#000',
-              }}
-            >
-              Hair Removal cream
-            </a>
-
             <a
               onClick={() => {
                 history.push('/Depilatory', {})

@@ -1,108 +1,78 @@
 // import React from 'react'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Component } from 'react'
 // import sofa from '../images/sofa.png'
 // import '../App.css'
+import { async, uuidv4 } from '@firebase/util'
 import '../../App.css'
+import Logo from './Logo.png'
 import '../HeroSection.css'
 import SlidingPane from 'react-sliding-pane'
 import 'react-sliding-pane/dist/react-sliding-pane.css'
 import FlatList from 'flatlist-react'
 import '../Navbar.css'
+import { db, storage } from '../../firebase'
 import { AiFillPlusSquare } from 'react-icons/ai'
-
 import { useHistory } from 'react-router-dom'
-
-import { AiOutlineShoppingCart } from 'react-icons/ai'
-import { FaStarHalfAlt } from 'react-icons/fa'
 import { useLocation } from 'react-router-dom'
 import Navbar from '../Navbar'
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  where,
+} from 'firebase/firestore'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
+// import storage
+// ref
 function EnergyBooster() {
   const [state, setState] = useState({
     isPaneOpen: false,
     isPaneOpenLeft: false,
   })
 
-  const EnergyBooster = [
-    {
-      productName: 'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-      productOffPrice: '2,149',
-      productOnPrice: '1,289',
-      OffPrice: '860',
-      productimg: '../EnergyBooster/EnergyBooster1.jpeg',
-      Discription:
-        "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-      video: '../EnergyBooster/vid.mp4',
-    },
-    {
-      productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-      productOffPrice: '1,99',
-      productOnPrice: '839',
-      OffPrice: '560',
-      video: '../EnergyBooster/vid.mp4',
-
-      productimg: '../EnergyBooster/EnergyBooster2.jpeg',
-      Discription:
-        'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-    },
-    {
-      productName:
-        'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-      productOffPrice: '1,995',
-      productOnPrice: '1,197',
-      OffPrice: '798',
-      video: '../EnergyBooster/vid.mp4',
-
-      productimg: '../EnergyBooster/EnergyBooster3.jpeg',
-      Discription:
-        'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-    },
-    {
-      productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
-      productOffPrice: '1,890',
-      productOnPrice: '1,134',
-      OffPrice: '756',
-      video: '../EnergyBooster/vid.mp4',
-
-      productimg: '../EnergyBooster/EnergyBooster4.jpeg',
-      Discription:
-        'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-    },
-  ]
   let history = useHistory()
   const [ProductName, setProductName] = useState('')
   const [ProductDiscount, setProductDiscount] = useState('')
   const [ProductPrice, setProductPrice] = useState('')
   const [ProductOff, setProductOff] = useState('')
   const [Discription, setDiscription] = useState('')
-
+  const [state1, setState1] = useState(
+    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+  )
   const location = useLocation()
-
+  const [EnergyBoosterData, SetEnergyBoosterData] = useState([])
   const vedio = location.state.vedio
-
-  const [click, setClick] = useState(false)
+  const imageHandler = (e) => {
+    if (e.target.files[0]) {
+      setState1(e.target.files[0])
+    }
+  }
   const [button, setButton] = useState(true)
-  const [name, setName] = useState('')
-  const handleClick = () => setClick(!click)
-  const closeMobileMenu = () => setClick(false)
+  const Delcte = (item) => {
+    //   console.log(item.id);
+    //  collection(db,"EnergyBooster").where(item.id).then((documentSnapshot)=>{
+    //   console.log(documentSnapshot.data());
+    //  })
+    const docref = doc(db, 'EnergyBooster', item.id)
+    deleteDoc(docref)
+      .then(() => {
+        GetDoc()
+        alert('Scuessfully Delected')
+      })
+      .catch((e) => {
+        alert('Something Gone wrong')
+      })
+  }
   const Render = (item) => {
+    // const IMagePicker = () => {}
+
     return (
       <div
-        // onClick={() => {
-        //   history.push('/Cart', {
-        //     productimg: item.productimg,
-        //     productName: item.productName,
-        //     productOffPrice: item.productOffPrice,
-        //     productOnPrice: item.productOnPrice,
-        //     Discription: item.Discription,
-        //     vedio: item.vedio,
-        //   })
-        // }}
         style={{
-          // marginRight: '1%',
-          // backgroundColor: 'pink',
-          // marginRight: 40,
           height: 410,
-          // height: 100,
           width: 340,
         }}
       >
@@ -111,7 +81,7 @@ function EnergyBooster() {
             width: '100%',
             height: '70%',
           }}
-          src={item.productimg}
+          src={item.products.productimg}
         />
 
         <text
@@ -119,10 +89,9 @@ function EnergyBooster() {
             fontSize: 16,
             height: 20,
             width: '100%',
-            // backgroundColor: 'pink',
           }}
         >
-          {item.productName}
+          {item.products.productName}
         </text>
         <div
           style={{
@@ -141,7 +110,7 @@ function EnergyBooster() {
               color: 'grey',
             }}
           >
-            Rs.{item.productOffPrice}
+            Rs.{item.products.productOffPrice}
           </text>
           <text
             style={{
@@ -150,11 +119,12 @@ function EnergyBooster() {
               fontWeight: 'bold',
             }}
           >
-            Rs.{item.productOnPrice}
+            Rs.{item.products.productOnPrice}
           </text>
         </div>
 
         <div
+          onClick={() => Delcte(item)}
           style={{
             marginTop: '7%',
 
@@ -190,44 +160,66 @@ function EnergyBooster() {
       setButton(true)
     }
   }
+  const GetDoc = () => {
+    getDocs(collection(db, 'EnergyBooster')).then((querySnapshot) => {
+      console.log('Total users: ', querySnapshot.size)
+      SetEnergyBoosterData([])
+      querySnapshot.forEach((documentSnapshot) => {
+        console.log('User ID: ', documentSnapshot.id, documentSnapshot.data())
+        const d = {
+          id: documentSnapshot.id,
+          products: documentSnapshot.data(),
+        }
+        SetEnergyBoosterData((EnergyBoosterData) => [...EnergyBoosterData, d])
+      })
+    })
+  }
 
   useEffect(() => {
     showButton()
+    GetDoc()
   }, [])
   // console.log(SubArray)
   window.addEventListener('resize', showButton)
   // console.log(SubArray)
-
+  const uploadImage = () => {
+    const imageRef = ref(storage, uuidv4.call())
+    uploadBytes(imageRef, state1)
+      .then(() => {
+        getDownloadURL(imageRef)
+          .then(async (url) => {
+            setState1(url)
+            try {
+              await addDoc(collection(db, 'EnergyBooster'), {
+                productName: ProductName,
+                productOffPrice: ProductOff,
+                productOnPrice: ProductDiscount,
+                Description: Discription,
+                productimg: url,
+              }).then(() => {
+                alert('Product  Sccuessfully added')
+                setState({ isPaneOpen: false })
+              })
+            } catch (err) {
+              alert(err)
+            }
+          })
+          .catch((e) => {
+            alert('SomeThing Went Wrong')
+          })
+      })
+      .catch((e) => {
+        alert('SomeThing Went Wrong')
+      })
+  }
+  const handleSubmit = async (e) => {
+    // e.preventDefault()
+    uploadImage()
+  }
   return (
     <div>
       <Navbar />
       <div className="hero-container">
-        {/* <h2
-        style={{
-          fontSize: 40,
-          textAlign: 'center',
-        }}
-      >
-        {TitleMain}
-      </h2> */}
-        {/* <div style={{}}>
-        <div
-          style={{
-            // flexDirection: 'row',
-            display: 'flex',
-
-            marginTop: '2%',
-            marginBottom: 100,
-            width: '100%',
-            height: '100%',
-            paddingLeft: '10%',
-            paddingRight: '10%',
-            // backgroundColor: 'blue',
-          }}
-        >
-          {ProductDetail}
-        </div>
-      </div> */}
         <div
           style={{
             paddingLeft: 20,
@@ -240,7 +232,7 @@ function EnergyBooster() {
                 // marginRight: '5%',
               }
             }
-            list={EnergyBooster}
+            list={EnergyBoosterData}
             display={{
               grid: true,
               // minColumnWidth: '10px',
@@ -260,17 +252,13 @@ function EnergyBooster() {
         </div>
       </div>
       <SlidingPane
-        // closeIcon={<div>Some div containing custom close icon.</div>}
         isOpen={state.isPaneOpenLeft}
-        // title="Hey, it is optional pane title.  I can be React component too."
         from="top"
         width="100%"
         onRequestClose={() => setState({ isPaneOpenLeft: false })}
       >
         <div
           style={{
-            // backgroundColor: 'pink',
-
             width: '100%',
             height: '100%',
           }}
@@ -283,13 +271,28 @@ function EnergyBooster() {
           >
             ADD PRODUCT
           </h1>
+          <img
+            style={{
+              width: '30%',
+              marginLeft: '20%',
+              height: '40%',
+            }}
+            src={state1}
+          />
+          <input
+            type="file"
+            accept="image/*"
+            name="image-upload"
+            id="input"
+            onChange={imageHandler}
+          />
           <form
             style={{
+              marginTop: 60,
               paddingLeft: 99,
             }}
           >
             <label>
-              {/* Enter your Email: */}
               Enter the Product Name
               <input
                 type="text"
@@ -299,7 +302,6 @@ function EnergyBooster() {
                   paddingLeft: '1%',
                   height: 40,
                   marginLeft: '4%',
-                  // backgroundColor: 'pink',
                 }}
                 placeholder={'Enter the Product Name'}
                 onChange={(e) => setProductName(e.target.value)}
@@ -314,8 +316,7 @@ function EnergyBooster() {
             }}
           >
             <label>
-              {/* Enter Country Name */}
-              Enter Product Discount
+              Enter Product OnPrice
               <input
                 type="text"
                 value={ProductDiscount}
@@ -324,37 +325,13 @@ function EnergyBooster() {
                   paddingLeft: '1%',
                   height: 40,
                   marginLeft: '4%',
-                  // backgroundColor: 'pink',
                 }}
-                placeholder={'Enter Product Discount'}
+                placeholder={'Enter Product on Price'}
                 onChange={(e) => setProductDiscount(e.target.value)}
               />
             </label>
           </form>
-          <form
-            style={{
-              paddingLeft: 130,
-              marginTop: '1%',
-            }}
-          >
-            <label>
-              {/* Enter First Name */}
-              Enter Product Price
-              <input
-                type="text"
-                value={ProductPrice}
-                style={{
-                  width: '40%',
-                  paddingLeft: '1%',
-                  height: 40,
-                  marginLeft: '4%',
-                  // backgroundColor: 'pink',
-                }}
-                placeholder={' Enter Product Price'}
-                onChange={(e) => setProductPrice(e.target.value)}
-              />
-            </label>
-          </form>
+
           <form
             style={{
               paddingLeft: 148,
@@ -362,7 +339,6 @@ function EnergyBooster() {
             }}
           >
             <label>
-              {/* Enter Last Name */}
               Enter Product Off
               <input
                 type="text"
@@ -372,7 +348,6 @@ function EnergyBooster() {
                   paddingLeft: '1%',
                   height: 40,
                   marginLeft: '4%',
-                  // backgroundColor: 'pink',
                 }}
                 placeholder={' Enter Product Off'}
                 onChange={(e) => setProductOff(e.target.value)}
@@ -409,9 +384,10 @@ function EnergyBooster() {
               display: 'flex',
             }}
           >
-            <div
-              onClick={() => setState({ isPaneOpenLeft: false })}
+            <button
+              onClick={handleSubmit}
               style={{
+                borderWidth: 0,
                 height: 50,
                 width: 120,
                 marginTop: '4%',
@@ -432,7 +408,7 @@ function EnergyBooster() {
               >
                 Add New
               </text>
-            </div>
+            </button>
           </div>
         </div>
       </SlidingPane>
