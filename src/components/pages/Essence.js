@@ -15,8 +15,8 @@ import { AiFillPlusSquare } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Navbar from "../Navbar";
-import { addDoc, collection,  doc,  getDocs} from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { addDoc, collection,  deleteDoc,  doc,  getDoc,  getDocs,where} from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytes, } from "firebase/storage";
 // import storage
 // ref
 function Essence() {
@@ -24,51 +24,7 @@ function Essence() {
     isPaneOpen: false,
     isPaneOpenLeft: false,
   });
-  const Essence = [
-    {
-      productName: "Essence Duo Sharpener",
-      productOffPrice: "630",
-      productOnPrice: "470",
-      OffPrice: "860",
-      productimg: "../Essence/Essence1.PNG",
-      Discription:
-        "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-      video: "../Essence/vid.mp4",
-    },
-    {
-      productName: "Essence Bye Panda Eyes!",
-      productOffPrice: "1,99",
-      productOnPrice: "839",
-      OffPrice: "560",
-      video: "../Essence/vid.mp4",
-
-      productimg: "../Essence/Essence2.PNG",
-      Discription:
-        "Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..",
-    },
-    {
-      productName: "Essence Skin Lovin ",
-      productOffPrice: "1,995",
-      productOnPrice: "1,197",
-      OffPrice: "798",
-      video: "../Essence/vid.mp4",
-
-      productimg: "../Essence/Essence3.PNG",
-      Discription:
-        "Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..",
-    },
-    {
-      productName: "Essence 24ever Defined Volume",
-      productOffPrice: "1,890",
-      productOnPrice: "1,134",
-      OffPrice: "756",
-      video: "../Essence/vid.mp4",
-
-      productimg: "../Essence/Essence4.PNG",
-      Discription:
-        "The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..",
-    },
-  ];
+ 
   let history = useHistory();
   const [ProductName, setProductName] = useState("");
   const [ProductDiscount, setProductDiscount] = useState("");
@@ -86,7 +42,19 @@ function Essence() {
        
     };
   const [button, setButton] = useState(true);
-
+   const Delcte=(item)=>{
+  //   console.log(item.id);
+  //  collection(db,"Essence").where(item.id).then((documentSnapshot)=>{
+  //   console.log(documentSnapshot.data());
+  //  })
+   const docref=doc(db,"Essence",item.id)
+   deleteDoc(docref).then(()=>{
+     GetDoc();
+    alert("Scuessfully Delected")
+   }).catch((e)=>{
+    alert("Something Gone wrong")
+   })
+   }
   const Render = (item) => {
     // const IMagePicker = () => {}
 
@@ -102,7 +70,7 @@ function Essence() {
             width: "100%",
             height: "70%",
           }}
-          src={item.productimg}
+          src={item.products.productimg}
         />
 
         <text
@@ -112,7 +80,7 @@ function Essence() {
             width: "100%",
           }}
         >
-          {item.productName}
+          {item.products.productName}
         </text>
         <div
           style={{
@@ -131,7 +99,7 @@ function Essence() {
               color: "grey",
             }}
           >
-            Rs.{item.productOffPrice}
+            Rs.{item.products.productOffPrice}
           </text>
           <text
             style={{
@@ -140,11 +108,12 @@ function Essence() {
               fontWeight: "bold",
             }}
           >
-            Rs.{item.productOnPrice}
+            Rs.{item.products.productOnPrice}
           </text>
         </div>
 
         <div
+        onClick={()=>Delcte(item)}
           style={{
             marginTop: "7%",
 
@@ -190,7 +159,7 @@ function Essence() {
          "id":documentSnapshot.id,
         "products":documentSnapshot.data()
       }
-      // SetEssenceData((EssenceData)=>[...EssenceData,d])
+      SetEssenceData((EssenceData)=>[...EssenceData,d])
    
     });
   });
@@ -248,7 +217,7 @@ function Essence() {
                 // marginRight: '5%',
               }
             }
-            list={Essence}
+            list={EssenceData}
             display={{
               grid: true,
               // minColumnWidth: '10px',
