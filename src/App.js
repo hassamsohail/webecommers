@@ -35,6 +35,8 @@ import Lipstick2 from './components/pages/Lipstick2'
 import Login from './components/pages/Login'
 import UserPanel from './components/UserPanel'
 import Opps from './components/404'
+import Order from './components/pages/Order'
+import Footer from './components/Footer'
 function App() {
   return (
     <>
@@ -44,7 +46,6 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/Brand" component={Brand} />
         <Route path="/Cart" component={Cart} />
-
         <Route path="/Addcart" component={Addcart} />
         <Route path="/Addcart2" component={Addcart2} />
         <Route path="/Create" component={Create} />
@@ -67,14 +68,13 @@ function App() {
         <Route path="/LipStick" component={LipStick} />
         <Route path="/VaginalCare" component={VaginalCare} />
         <Route path="/Lipstick2" component={Lipstick2} />
-
         <Route path="/WaxStrips" component={WaxStrips} />
         <Route path="/HairRemoval" component={HairRemoval} />
         <Route path="/Haseeb" component={Haseeb} />
         <Route path="/UserPanel" component={UserPanel} />
         <Route path="/error" component={Opps} />
-
-        {/* </Switch> */}
+        <Route path="/Order" component={Order} />
+        {/* <Footer /> */}
       </Routes>
     </>
   )

@@ -14,7 +14,6 @@ import { useHistory } from 'react-router-dom'
 
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { FaStarHalfAlt } from 'react-icons/fa'
-import { useLocation } from 'react-router-dom'
 import Navbar from '../Navbar'
 function Dandruff() {
   const [state, setState] = useState({
@@ -73,10 +72,6 @@ function Dandruff() {
   const [ProductPrice, setProductPrice] = useState('')
   const [ProductOff, setProductOff] = useState('')
   const [Discription, setDiscription] = useState('')
-
-  const location = useLocation()
-
-  const vedio = location.state.vedio
 
   const [click, setClick] = useState(false)
   const [button, setButton] = useState(true)

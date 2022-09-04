@@ -13,7 +13,6 @@ import '../Navbar.css'
 import { db, storage } from '../../firebase'
 import { AiFillPlusSquare } from 'react-icons/ai'
 import { useHistory } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
 import Navbar from '../Navbar'
 import {
   addDoc,
@@ -32,7 +31,6 @@ function Essence() {
     isPaneOpen: false,
     isPaneOpenLeft: false,
   })
-
   let history = useHistory()
   const [ProductName, setProductName] = useState('')
   const [ProductDiscount, setProductDiscount] = useState('')
@@ -42,9 +40,7 @@ function Essence() {
   const [state1, setState1] = useState(
     'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
   )
-  const location = useLocation()
   const [EssenceData, SetEssenceData] = useState([])
-  const vedio = location.state.vedio
   const imageHandler = (e) => {
     if (e.target.files[0]) {
       setState1(e.target.files[0])
@@ -96,7 +92,6 @@ function Essence() {
         <div
           style={{
             flexDirection: 'row',
-            // justifyContent: 'center',
             alignItems: 'center',
             marginTop: 12,
             display: 'flex',
@@ -122,7 +117,6 @@ function Essence() {
             Rs.{item.products.productOnPrice}
           </text>
         </div>
-
         <div
           onClick={() => Delcte(item)}
           style={{
@@ -148,7 +142,6 @@ function Essence() {
           >
             Remove Items
           </text>
-          {/* <AiOutlineShoppingCart size={20} color={'#fff'} /> */}
         </div>
       </div>
     )

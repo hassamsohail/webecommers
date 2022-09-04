@@ -10,7 +10,7 @@ function Home() {
   // useEffect(() => {
   //   alert(count)
   // }, [])
-  alert(count)
+  // alert(count)
   if (count == 0) {
     return (
       <>

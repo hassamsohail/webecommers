@@ -13,7 +13,6 @@ import '../Navbar.css'
 import { db, storage } from '../../firebase'
 import { AiFillPlusSquare } from 'react-icons/ai'
 import { useHistory } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
 import Navbar from '../Navbar'
 import {
   addDoc,
@@ -42,9 +41,7 @@ function FaceWash() {
   const [state1, setState1] = useState(
     'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
   )
-  const location = useLocation()
   const [FaceWashData, SetFaceWashData] = useState([])
-  const vedio = location.state.vedio
   const imageHandler = (e) => {
     if (e.target.files[0]) {
       setState1(e.target.files[0])

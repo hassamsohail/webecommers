@@ -5,690 +5,69 @@ import '../App.css'
 import { Button } from './Button'
 import './HeroSection.css'
 import './Navbar.css'
+import { async, uuidv4 } from '@firebase/util'
+import FlatList from 'flatlist-react'
 // import { FlatList } from 'react-native'
-import { AiFillPlusSquare } from 'react-icons/ai'
+// import { AiFillPlusSquare } from 'react-icons/ai'
 import { AiOutlineClose } from 'react-icons/ai'
 import SlidingPane from 'react-sliding-pane'
-
-import { Link, Route, Routes } from 'react-router-dom'
-import { FaStar } from 'react-icons/fa'
-import { FaStarHalfAlt } from 'react-icons/fa'
+import { AiFillPlusSquare } from 'react-icons/ai'
 import { useHistory } from 'react-router-dom'
-import Footer from './Footer'
+import { AiFillPlusCircle } from 'react-icons/ai'
 import Navbar from './Navbar'
-
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  where,
+} from 'firebase/firestore'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
+import { db, storage } from '../firebase'
 function HeroSection({}) {
   const [state, setState] = useState({
     isPaneOpen: false,
     isPaneOpenLeft: false,
   })
-  const AAry = [
-    {
-      //Main big Image
-      img: '../images/imgg1.png',
-      // width:
-      title: 'Maybelline New York',
 
-      //sub Array Of Product
-      subarry: [
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,99',
-          productOnPrice: '839',
-          OffPrice: '560',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/2.PNG',
-          Discription:
-            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-        },
-        {
-          productName:
-            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-          productOffPrice: '1,995',
-          productOnPrice: '1,197',
-          OffPrice: '798',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/3.PNG',
-          Discription:
-            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-        },
-        {
-          productName:
-            'Maybelline NY BB Ultracoverskjid  js dhvcjsdyus SPF 50 - 30ml',
-          productOffPrice: '1,890',
-          productOnPrice: '1,134',
-          OffPrice: '756',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/4.PNG',
-          Discription:
-            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-        },
-      ],
-    },
-    {
-      //Main big Image
-      img: '../images/imgg11.png',
-      // width:
-      title: 'Lipstick',
-
-      //sub Array Of Product
-      subarry: [
-        {
-          productName: 'Maybelline NY Colossal Curl ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../LipStick/LipStick1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,99',
-          productOnPrice: '839',
-          OffPrice: '560',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/2.PNG',
-          Discription:
-            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-        },
-        {
-          productName:
-            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-          productOffPrice: '1,995',
-          productOnPrice: '1,197',
-          OffPrice: '798',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/3.PNG',
-          Discription:
-            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-        },
-        {
-          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
-          productOffPrice: '1,890',
-          productOnPrice: '1,134',
-          OffPrice: '756',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/4.PNG',
-          Discription:
-            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-        },
-      ],
-    },
-    {
-      //Main big Image
-      img: '../images/imgg5.png',
-      // width:
-      title: 'Maybelline ',
-
-      //sub Array Of Product
-      subarry: [
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,99',
-          productOnPrice: '839',
-          OffPrice: '560',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/2.PNG',
-          Discription:
-            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-        },
-        {
-          productName:
-            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-          productOffPrice: '1,995',
-          productOnPrice: '1,197',
-          OffPrice: '798',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/3.PNG',
-          Discription:
-            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-        },
-        {
-          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
-          productOffPrice: '1,890',
-          productOnPrice: '1,134',
-          OffPrice: '756',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/4.PNG',
-          Discription:
-            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-        },
-      ],
-    },
-    {
-      img: '../images/imgg2.png',
-      // width:
-      title: 'FLASH WEEKEND SALE ',
-      subarry: [
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,990',
-          productOnPrice: '839',
-          OffPrice: '560',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/2.PNG',
-          Discription:
-            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-        },
-        {
-          productName:
-            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-          productOffPrice: '1,995',
-          productOnPrice: '1,197',
-          OffPrice: '798',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/3.PNG',
-          Discription:
-            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-        },
-        {
-          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
-          productOffPrice: '1,890',
-          productOnPrice: '1,134',
-          OffPrice: '756',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/4.PNG',
-          Discription:
-            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-        },
-      ],
-    },
-
-    {
-      img: '../images/imgg3.png',
-      // width:
-      title: 'THE ORDINARY SERUMS - SALE',
-      subarry: [
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,99',
-          productOnPrice: '839',
-          OffPrice: '560',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/2.PNG',
-          Discription:
-            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-        },
-        {
-          productName:
-            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-          productOffPrice: '1,995',
-          productOnPrice: '1,197',
-          OffPrice: '798',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/3.PNG',
-          Discription:
-            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-        },
-        {
-          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
-          productOffPrice: '1,890',
-          productOnPrice: '1,134',
-          OffPrice: '756',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/4.PNG',
-          Discription:
-            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-        },
-      ],
-    },
-    {
-      img: '../images/imgg4.png',
-      // width:
-      title: 'Maybelline New York',
-      subarry: [
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,99',
-          productOnPrice: '839',
-          OffPrice: '560',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/2.PNG',
-          Discription:
-            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-        },
-        {
-          productName:
-            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-          productOffPrice: '1,995',
-          productOnPrice: '1,197',
-          OffPrice: '798',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/3.PNG',
-          Discription:
-            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-        },
-        {
-          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
-          productOffPrice: '1,890',
-          productOnPrice: '1,134',
-          OffPrice: '756',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/4.PNG',
-          Discription:
-            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-        },
-      ],
-    },
-    {
-      img: '../images/imgg5.png',
-      // width:
-      title: 'Maybelline New York',
-      subarry: [
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,99',
-          productOnPrice: '839',
-          OffPrice: '560',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/2.PNG',
-          Discription:
-            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-        },
-        {
-          productName:
-            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-          productOffPrice: '1,995',
-          productOnPrice: '1,197',
-          OffPrice: '798',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/3.PNG',
-          Discription:
-            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-        },
-        {
-          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
-          productOffPrice: '1,890',
-          productOnPrice: '1,134',
-          OffPrice: '756',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/4.PNG',
-          Discription:
-            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-        },
-      ],
-    },
-    {
-      img: '../images/imgg6.png',
-      // width:
-      title: 'Maybelline New York',
-      subarry: [
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,99',
-          productOnPrice: '839',
-          OffPrice: '560',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/2.PNG',
-          Discription:
-            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-        },
-        {
-          productName:
-            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-          productOffPrice: '1,995',
-          productOnPrice: '1,197',
-          OffPrice: '798',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/3.PNG',
-          Discription:
-            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-        },
-        {
-          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
-          productOffPrice: '1,890',
-          productOnPrice: '1,134',
-          OffPrice: '756',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/4.PNG',
-          Discription:
-            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-        },
-      ],
-    },
-    {
-      img: '../images/imgg7.png',
-      // width:
-      title: 'Maybelline New York',
-      subarry: [
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,99',
-          productOnPrice: '839',
-          OffPrice: '560',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/2.PNG',
-          Discription:
-            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-        },
-        {
-          productName:
-            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-          productOffPrice: '1,995',
-          productOnPrice: '1,197',
-          OffPrice: '798',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/3.PNG',
-          Discription:
-            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-        },
-        {
-          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
-          productOffPrice: '1,890',
-          productOnPrice: '1,134',
-          OffPrice: '756',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/4.PNG',
-          Discription:
-            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-        },
-      ],
-    },
-    {
-      img: '../images/imgg8.png',
-      // width:
-      title: 'Maybelline New York',
-      subarry: [
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,99',
-          productOnPrice: '839',
-          OffPrice: '560',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/2.PNG',
-          Discription:
-            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-        },
-        {
-          productName:
-            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-          productOffPrice: '1,995',
-          productOnPrice: '1,197',
-          OffPrice: '798',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/3.PNG',
-          Discription:
-            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-        },
-        {
-          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
-          productOffPrice: '1,890',
-          productOnPrice: '1,134',
-          OffPrice: '756',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/4.PNG',
-          Discription:
-            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-        },
-      ],
-    },
-    {
-      img: '../images/imgg9.png',
-      // width:
-      title: 'Maybelline New York',
-      subarry: [
-        {
-          productName:
-            'Maybelline NY Colossal Curl Bounce Mascara - Very Black ',
-          productOffPrice: '2,149',
-          productOnPrice: '1,289',
-          OffPrice: '860',
-          productimg: '../images/1.PNG',
-          Discription:
-            "Now big volume meets bouncy curl. Colossal Curl Bounce mascara turns up the volume and curls up every lash without clumps. Up to 24HR wear. Colossal Curl Bounce turns up the volume. Now big volume meets bouncy curl. Its Curl ’N’ Bounce brush separates and curls lashes while its Memory-Curl formula gives curl that lasts. This long wearing mascara delivers lasting bouncy lashes. Defies clumps. Defies smudging. Defies flaking. Up to 24HR wear. For best results, hold Maybelline Colossal Curl Bounce's brush against lashes and extend from root to tip repeatedly in an upwards motion until desired volume and curl is achieved.",
-          video: '../images/vid.mp4',
-        },
-        {
-          productName: 'Maybelline NY Baby Skin Instant Pore Eraser Primer ',
-          productOffPrice: '1,99',
-          productOnPrice: '839',
-          OffPrice: '560',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/2.PNG',
-          Discription:
-            'Maybelline Baby Skin Instant Pore Eraser Primer This makeup primer leaves skin with a baby smooth and matte finish. Moisturizes all day. How to apply/use  Step 1. Apply a thin layer to skin. Step 2. Can be worn with or without a moisturizer..',
-        },
-        {
-          productName:
-            'Maybelline NY The Falsies Lash Lift Waterproof Mascara - Very Black ',
-          productOffPrice: '1,995',
-          productOnPrice: '1,197',
-          OffPrice: '798',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/3.PNG',
-          Discription:
-            'Falsies Lash Lift Mascara Is A Lifting Mascara That Delivers Dramatic Length And Volume BENEFITS Get an instant lash lift effect from a mascara. Falsies Lash Lift mascara with fiber delivers dramatic volume and long, lifted lashes - a mascara that looks like false eyelashes! Our double curved lifting brush and fiber-infused formula grabs lashes at the root to lift, thicken, and lengthen. No clumps, smears, or flakes, just volume and the look of longer eyelashes that lasts all day..',
-        },
-        {
-          productName: 'Maybelline NY BB Ultracover SPF 50 - 30ml',
-          productOffPrice: '1,890',
-          productOnPrice: '1,134',
-          OffPrice: '756',
-          video: '../images/vid.mp4',
-
-          productimg: '../images/4.PNG',
-          Discription:
-            'The New Super BB Ultra cover banishes your flaws in one swipe with SPF 50 for super UA protention. Dark spots & Circles, Pores, Fine Lines, Redness, Acne Marks, Skin Dullness, Unevenness & lack of radiance…all Ultra covered..',
-        },
-      ],
-    },
-  ]
-  // const history = useNavigate()
-  // const nextPage = (e) => {
-  //   e.preventDefault()
-  //   history('/Cart',{
-  // })
+  const [state2, setState2] = useState({
+    isPaneOpen2: false,
+    isPaneOpenLeft2: false,
+  })
+  const [state1, setState1] = useState(
+    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+  )
   const [AllDocs, setAllDocs] = useState([])
   let history = useHistory()
+  const [HeroSectionData, SetHeroSectionData] = useState([])
+  const imageHandler = (e) => {
+    if (e.target.files[0]) {
+      setState1(e.target.files[0])
+    }
+  }
+
   const [ProductName, setProductName] = useState('')
   const [ProductDiscount, setProductDiscount] = useState('')
   const [ProductPrice, setProductPrice] = useState('')
   const [ProductOff, setProductOff] = useState('')
   const [Discription, setDiscription] = useState('')
-
-  const AllData = AAry.map((item) => (
-    // <div className="img-main">
-    <div>
-      <AiOutlineClose size={40} />
-      <div
-        // onClick={() => history('/Cart')}
-        onClick={() => {
-          history.push('/Brand', {
-            TitleMain: item.title,
-            SubArray: item.subarry,
-          })
-
-          // onClick={ClickHandle}
-        }}
-        style={
-          {
-            // marginTop: '3%',
-          }
-        }
-      >
-        <img
-          style={{
-            width: '100%',
-            height: '10%',
-          }}
-          src={item.img}
-        />
-      </div>
-    </div>
-    // </div>
-  ))
-
-  const [click, setClick] = useState(false)
-  const [button, setButton] = useState(true)
-  const handleClick = () => setClick(!click)
-  const closeMobileMenu = () => setClick(false)
-
+  const Delcte = (item) => {
+    //   console.log(item.id);
+    //  collection(db,"HeroSection").where(item.id).then((documentSnapshot)=>{
+    //   console.log(documentSnapshot.data());
+    //  })
+    const docref = doc(db, 'HeroSection', item.id)
+    deleteDoc(docref)
+      .then(() => {
+        GetDoc()
+        alert('Scuessfully Delected')
+      })
+      .catch((e) => {
+        alert('Something Gone wrong')
+      })
+  }
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false)
@@ -697,9 +76,91 @@ function HeroSection({}) {
     }
   }
 
+  const GetDoc = () => {
+    getDocs(collection(db, 'HeroSection')).then((querySnapshot) => {
+      console.log('Total users: ', querySnapshot.size)
+      SetHeroSectionData([])
+      querySnapshot.forEach((documentSnapshot) => {
+        console.log('User ID: ', documentSnapshot.id, documentSnapshot.data())
+        const d = {
+          id: documentSnapshot.id,
+          products: documentSnapshot.data(),
+        }
+        SetHeroSectionData((HeroSectionData) => [...HeroSectionData, d])
+      })
+    })
+  }
   useEffect(() => {
     showButton()
+    GetDoc()
   }, [])
+  const uploadImage = () => {
+    const imageRef = ref(storage, uuidv4.call())
+    uploadBytes(imageRef, state1)
+      .then(() => {
+        getDownloadURL(imageRef)
+          .then(async (url) => {
+            setState1(url)
+            try {
+              await addDoc(collection(db, 'HeroSection'), {
+                // productName: ProductName,
+                // productOffPrice: ProductOff,
+                // productOnPrice: ProductDiscount,
+                // Description: Discription,
+                img: url,
+              }).then(() => {
+                alert('Product  Sccuessfully added')
+                setState({ isPaneOpen: false })
+              })
+            } catch (err) {
+              alert(err)
+            }
+          })
+          .catch((e) => {
+            alert('SomeThing Went Wrong')
+          })
+      })
+      .catch((e) => {
+        alert('SomeThing Went Wrong')
+      })
+  }
+  const handleSubmit = async (e) => {
+    // e.preventDefault()
+    uploadImage()
+    // setState2({ isPaneOpenLeft2: true })
+  }
+
+  const Render = (item) => {
+    // const IMagePicker = () => {}
+
+    return (
+      <div>
+        <AiOutlineClose onClick={() => Delcte(item)} size={40} />
+        <div
+          // onClick={() => history('/Cart')}
+          onClick={() => {
+            history.push('/Brand', {
+              // TitleMain: item.title,
+              // SubArray: item.subarry,
+            })
+            // onClick={ClickHandle}
+          }}
+        >
+          <img
+            style={{
+              width: '100%',
+              height: '10%',
+            }}
+            src={item.products.img}
+          />
+        </div>
+      </div>
+    )
+  }
+  const [click, setClick] = useState(false)
+  const [button, setButton] = useState(true)
+  const handleClick = () => setClick(!click)
+  const closeMobileMenu = () => setClick(false)
 
   window.addEventListener('resize', showButton)
 
@@ -707,7 +168,23 @@ function HeroSection({}) {
     <div>
       <Navbar />
       <div className="hero-container">
-        <div className="img-main">{AllData}</div>
+        <FlatList
+          style={
+            {
+              // marginRight: '5%',
+            }
+          }
+          list={HeroSectionData}
+          display={
+            {
+              // grid: true,
+              // minColumnWidth: '10px',
+              // gridGap: '150px',
+            }
+          }
+          renderItem={Render}
+        />
+        {/* <div className="img-main">{AllData}</div> */}
         <div
           onClick={() => setState({ isPaneOpenLeft: true })}
           style={{
@@ -733,6 +210,7 @@ function HeroSection({}) {
             }}
           >
             <AiFillPlusSquare
+              onClick={() => setState({ isPaneOpenLeft: true })}
               style={{
                 color: '#f7c17c',
                 // width: 200,
@@ -744,21 +222,24 @@ function HeroSection({}) {
         </div>
       </div>
       <SlidingPane
-        // closeIcon={<div>Some div containing custom close icon.</div>}
         isOpen={state.isPaneOpenLeft}
-        // title="Hey, it is optional pane title.  I can be React component too."
         from="top"
         width="100%"
         onRequestClose={() => setState({ isPaneOpenLeft: false })}
       >
         <div
           style={{
-            // backgroundColor: 'pink',
-
             width: '100%',
             height: '100%',
           }}
         >
+          <AiFillPlusCircle
+            // onClick={() => setState2({ isPaneOpenLeft2: true })}
+            style={{
+              marginLeft: '70%',
+            }}
+            size={60}
+          />
           <h1
             style={{
               fontSize: 40,
@@ -767,135 +248,32 @@ function HeroSection({}) {
           >
             ADD PRODUCT
           </h1>
-          <form
+          <img
             style={{
-              paddingLeft: 99,
+              width: '30%',
+              marginLeft: '20%',
+              height: '40%',
             }}
-          >
-            <label>
-              {/* Enter your Email: */}
-              Enter the Product Name
-              <input
-                type="text"
-                value={ProductName}
-                style={{
-                  width: '39%',
-                  paddingLeft: '1%',
-                  height: 40,
-                  marginLeft: '4%',
-                  // backgroundColor: 'pink',
-                }}
-                placeholder={'Enter the Product Name'}
-                onChange={(e) => setProductName(e.target.value)}
-              />
-            </label>
-          </form>
+            src={state1}
+          />
+          <input
+            type="file"
+            accept="image/*"
+            name="image-upload"
+            id="input"
+            onChange={imageHandler}
+          />
 
-          <form
-            style={{
-              paddingLeft: 103,
-              marginTop: '1%',
-            }}
-          >
-            <label>
-              {/* Enter Country Name */}
-              Enter Product Discount
-              <input
-                type="text"
-                value={ProductDiscount}
-                style={{
-                  width: '39%',
-                  paddingLeft: '1%',
-                  height: 40,
-                  marginLeft: '4%',
-                  // backgroundColor: 'pink',
-                }}
-                placeholder={'Enter Product Discount'}
-                onChange={(e) => setProductDiscount(e.target.value)}
-              />
-            </label>
-          </form>
-          <form
-            style={{
-              paddingLeft: 130,
-              marginTop: '1%',
-            }}
-          >
-            <label>
-              {/* Enter First Name */}
-              Enter Product Price
-              <input
-                type="text"
-                value={ProductPrice}
-                style={{
-                  width: '40%',
-                  paddingLeft: '1%',
-                  height: 40,
-                  marginLeft: '4%',
-                  // backgroundColor: 'pink',
-                }}
-                placeholder={' Enter Product Price'}
-                onChange={(e) => setProductPrice(e.target.value)}
-              />
-            </label>
-          </form>
-          <form
-            style={{
-              paddingLeft: 148,
-              marginTop: '1%',
-            }}
-          >
-            <label>
-              {/* Enter Last Name */}
-              Enter Product Off
-              <input
-                type="text"
-                value={ProductOff}
-                style={{
-                  width: '40%',
-                  paddingLeft: '1%',
-                  height: 40,
-                  marginLeft: '4%',
-                  // backgroundColor: 'pink',
-                }}
-                placeholder={' Enter Product Off'}
-                onChange={(e) => setProductOff(e.target.value)}
-              />
-            </label>
-          </form>
-          <form
-            style={{
-              paddingLeft: 124,
-              marginTop: '1%',
-            }}
-          >
-            <label>
-              {/* Enter Last Name */}
-              Enter The Discription
-              <input
-                type="text"
-                value={Discription}
-                style={{
-                  width: '39%',
-                  paddingLeft: '1%',
-                  height: 40,
-                  marginLeft: '4%',
-                  // backgroundColor: 'pink',
-                }}
-                placeholder={' Enter The Discription'}
-                onChange={(e) => setDiscription(e.target.value)}
-              />
-            </label>
-          </form>
           <div
             style={{
               flexDirection: 'row',
               display: 'flex',
             }}
           >
-            <div
-              onClick={() => setState({ isPaneOpenLeft: false })}
+            <button
+              onClick={handleSubmit}
               style={{
+                borderWidth: 0,
                 height: 50,
                 width: 120,
                 marginTop: '4%',
@@ -916,10 +294,80 @@ function HeroSection({}) {
               >
                 Add New
               </text>
-            </div>
+            </button>
           </div>
         </div>
       </SlidingPane>
+      {/* <SlidingPane
+        isOpen={state.isPaneOpenLeft}
+        from="top"
+        width="100%"
+        onRequestClose={() => setState2({ isPaneOpenLeft2: false })}
+      >
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+          }}
+        >
+          <h1
+            style={{
+              fontSize: 40,
+              fontWeight: 'bold',
+            }}
+          >
+            ADD PRODUCT
+          </h1>
+          <img
+            style={{
+              width: '30%',
+              marginLeft: '20%',
+              height: '40%',
+            }}
+            src={state1}
+          />
+          <input
+            type="file"
+            accept="image/*"
+            name="image-upload"
+            id="input"
+            onChange={imageHandler}
+          />
+
+          <div
+            style={{
+              flexDirection: 'row',
+              display: 'flex',
+            }}
+          >
+            <button
+              onClick={handleSubmit}
+              style={{
+                borderWidth: 0,
+                height: 50,
+                width: 120,
+                marginTop: '4%',
+                marginLeft: '9%',
+                borderRadius: 16,
+                backgroundColor: '#f7c17c',
+                alignItems: 'center',
+                marginRight: '10%',
+                justifyContent: 'center',
+                display: 'flex',
+              }}
+            >
+              <text
+                style={{
+                  fontWeight: 20,
+                  color: '#fff',
+                }}
+              >
+                Add New
+              </text>
+            </button>
+          </div>
+        </div>
+      </SlidingPane> */}
     </div>
   )
 }

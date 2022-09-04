@@ -17,7 +17,7 @@ import { render } from 'react-dom'
 import { FaTimes } from 'react-icons/fa'
 // import { AiOutlineSearch } from 'react-icons/ai'
 import { useHistory } from 'react-router-dom'
-
+import { FaClipboardList } from 'react-icons/fa'
 function Navbar() {
   const ary = [
     {
@@ -372,57 +372,6 @@ function Navbar() {
   }, [])
 
   window.addEventListener('resize', showButton)
-  const ProductCatagories = ary.map((item) => (
-    <div class="dropdown">
-      <button
-        class="dropbtn"
-        style={{
-          width: 140,
-          flexDirection: 'row',
-          color: '#fff',
-        }}
-      >
-        {item.title1}
-      </button>
-
-      <div class="dropdown-content">
-        <a
-          onClick={() => {
-            history.push('/Brand', {
-              TitleMain: item.title,
-              SubArray: item.subarry,
-            })
-          }}
-          style={{
-            color: '#000',
-          }}
-          // href="/Brand"
-        >
-          {item.subtitle1}
-        </a>
-        <a
-          onClick={() => {
-            history.push('/Brand', {
-              TitleMain: item.title,
-              SubArray: item.subarry,
-            })
-          }}
-        >
-          {item.subtitle2}
-        </a>
-        <a
-          onClick={() => {
-            history.push('/Brand', {
-              TitleMain: item.title,
-              SubArray: item.subarry,
-            })
-          }}
-        >
-          {item.subtitle3}
-        </a>
-      </div>
-    </div>
-  ))
 
   return (
     <>
@@ -628,9 +577,15 @@ function Navbar() {
             </a>
           </div>
         </div>
-
-        <Link to="/UserPanel">
+        <div
+          style={{
+            marginRight: 10,
+          }}
+        >
           <FaRegUser
+            onClick={() => {
+              history.push('/UserPanel', {})
+            }}
             style={{
               color: '#fff',
 
@@ -639,14 +594,26 @@ function Navbar() {
             }}
             size={20}
           />
-        </Link>
-        {/* <div
-          
-        >
+        </div>
 
+        <div>
+          <FaClipboardList
+            onClick={() => {
+              history.push('/Order', {})
+            }}
+            style={{
+              color: '#fff',
 
-        </div> */}
+              // color: '#F7C17C',
+              marginLeft: '30%',
+            }}
+            size={20}
+          />
+        </div>
         <button
+          onClick={() => {
+            history.push('/Login')
+          }}
           style={{
             width: 90,
             height: 40,
